@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import { useAuth } from "@/lib/auth";
 import {
   USER_ID,
   formatDate,
@@ -18,6 +19,8 @@ interface RoundWithCourse extends Round {
 }
 
 export default function RoundsPage() {
+  const { user } = useAuth();
+  const activeUserId = user?.id || USER_ID;
   const [rounds, setRounds] = useState<RoundWithCourse[]>([]);
   const [loading, setLoading] = useState(true);
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -28,7 +31,7 @@ export default function RoundsPage() {
     const { data: roundsData } = await supabase
       .from("sb_rounds")
       .select("*, sb_courses(id, name, city, state, num_holes)")
-      .eq("user_id", USER_ID)
+      .eq("user_id", activeUserId)
       .eq("is_complete", true)
       .order("date_played", { ascending: false });
 

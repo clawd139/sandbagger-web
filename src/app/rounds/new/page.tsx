@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { supabase } from "@/lib/supabase";
+import { useAuth } from "@/lib/auth";
 import {
   USER_ID,
   parseNotes,
@@ -48,6 +49,8 @@ const ROUND_TYPES = [
 ];
 
 function NewRoundPage() {
+  const { user } = useAuth();
+  const activeUserId = user?.id || USER_ID;
   const router = useRouter();
   const searchParams = useSearchParams();
   const editId = searchParams.get("edit");
@@ -247,7 +250,7 @@ function NewRoundPage() {
         const { data: round, error } = await supabase
           .from("sb_rounds")
           .insert({
-            user_id: USER_ID,
+            user_id: activeUserId,
             course_id: selectedCourse.id,
             date_played: datePlayed,
             total_score: totalScore,

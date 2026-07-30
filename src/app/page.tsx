@@ -3,11 +3,14 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import { useAuth } from "@/lib/auth";
 import { USER_ID, formatDate, parseNotes, calcRoundStats } from "@/lib/constants";
 import type { Course, Round, HoleScore } from "@/lib/constants";
 import ScoreBadge from "@/components/ScoreBadge";
 
 export default function Home() {
+  const { user } = useAuth();
+  const activeUserId = user?.id || USER_ID;
   const [courses, setCourses] = useState<Course[]>([]);
   const [recentRounds, setRecentRounds] = useState<(Round & { sb_courses?: Course | null })[]>([]);
   const [allHoleScores, setAllHoleScores] = useState<HoleScore[]>([]);
@@ -27,7 +30,7 @@ export default function Home() {
         supabase
           .from("sb_rounds")
           .select("*, sb_courses(id, name, city, state, num_holes)")
-          .eq("user_id", USER_ID)
+          .eq("user_id", activeUserId)
           .eq("is_complete", true)
           .order("date_played", { ascending: false })
           .limit(5),
@@ -77,6 +80,16 @@ export default function Home() {
           className="text-xs px-3 py-1.5 rounded-full bg-green-700 text-white font-semibold"
         >
           + Log Round
+        </Link>
+      </div>
+
+      {/* Quick links */}
+      <div className="flex gap-2 mb-3">
+        <Link href="/rounds" className="flex-1 bg-white rounded-xl p-2.5 text-center shadow-sm border border-gray-100 active:scale-[0.98] transition-transform">
+          <span className="text-sm font-semibold text-green-700">📋 My Rounds</span>
+        </Link>
+        <Link href="/courses" className="flex-1 bg-white rounded-xl p-2.5 text-center shadow-sm border border-gray-100 active:scale-[0.98] transition-transform">
+          <span className="text-sm font-semibold text-green-700">⛳ Courses</span>
         </Link>
       </div>
 
