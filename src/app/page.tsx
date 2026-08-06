@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/lib/auth";
-import { USER_ID, formatDate, parseNotes, calcRoundStats } from "@/lib/constants";
+import { USER_ID, formatDate, parseNotes, calcRoundStats, totalScoreColor } from "@/lib/constants";
 import type { Course, Round, HoleScore } from "@/lib/constants";
 import ScoreBadge from "@/components/ScoreBadge";
 
 export default function Home() {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const activeUserId = user?.id || USER_ID;
   const [courses, setCourses] = useState<Course[]>([]);
   const [recentRounds, setRecentRounds] = useState<(Round & { sb_courses?: Course | null })[]>([]);
@@ -22,6 +22,11 @@ export default function Home() {
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("/sw.js").catch(() => {});
     }
+  }, []);
+
+  useEffect(() => {
+    if (authLoading) return;
+    setLoading(true);
 
     (async () => {
       // Load courses and recent rounds in parallel
@@ -49,11 +54,13 @@ export default function Home() {
           .in("round_id", roundIds)
           .order("hole_number");
         setAllHoleScores((scores || []) as HoleScore[]);
+      } else {
+        setAllHoleScores([]);
       }
 
       setLoading(false);
     })();
-  }, []);
+  }, [activeUserId, authLoading]);
 
   // Quick stats from recent rounds
   const stats = calcRoundStats(allHoleScores);
@@ -125,6 +132,9 @@ export default function Home() {
             {recentRounds.slice(0, 3).map((round) => {
               const notes = parseNotes(round.notes);
               const isTournament = notes.round_type === "tournament";
+              const roundPar = allHoleScores
+                .filter((s) => s.round_id === round.id)
+                .reduce((sum, s) => sum + (s.par || 0), 0);
               return (
                 <Link
                   key={round.id}
@@ -142,7 +152,7 @@ export default function Home() {
                       </p>
                     </div>
                     <div className="text-right">
-                      <span className="text-2xl font-bold text-green-700">{round.total_score}</span>
+                      <span className="text-2xl font-bold" style={{ color: totalScoreColor(round.total_score, roundPar) }}>{round.total_score}</span>
                       {round.sb_courses && (
                         <p className="text-[10px] text-gray-400">
                           {round.sb_courses.num_holes} holes

@@ -1,16 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/lib/auth";
 
 export default function AuthPage() {
-  const { user, signOut, refreshProfile } = useAuth();
+  const { user, signIn, signUp, signOut, refreshProfile } = useAuth();
   const [mode, setMode] = useState<"login" | "signup">("login");
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
-  const [username, setUsername] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -19,33 +17,14 @@ export default function AuthPage() {
     setError("");
     setLoading(true);
 
-    try {
-      if (mode === "signup") {
-        const { data, error } = await supabase.auth.signUp({
-          email,
-          password,
-        });
-        if (error) throw error;
-        if (data.user) {
-          // Create profile
-          await supabase.from("sb_profiles").insert({
-            id: data.user.id,
-            username: username.toLowerCase().replace(/[^a-z0-9_]/g, ""),
-            display_name: displayName || username,
-          });
-        }
-      } else {
-        const { error } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-        if (error) throw error;
-      }
-    } catch (err: any) {
-      setError(err.message || "Something went wrong");
-    } finally {
-      setLoading(false);
+    if (mode === "signup") {
+      const { error } = await signUp(username, password, displayName);
+      if (error) setError(error);
+    } else {
+      const { error } = await signIn(username, password);
+      if (error) setError(error);
     }
+    setLoading(false);
   };
 
   // If logged in, show profile management
@@ -58,13 +37,13 @@ export default function AuthPage() {
         <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 mb-3">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-14 h-14 rounded-full bg-green-700 flex items-center justify-center text-white font-bold text-xl">
-              {(user.email || "?")[0].toUpperCase()}
+              {(user.display_name || user.username)[0].toUpperCase()}
             </div>
             <div className="flex-1">
               <p className="font-semibold text-gray-900">
-                {user.user_metadata?.display_name || user.email}
+                {user.display_name || user.username}
               </p>
-              <p className="text-sm text-gray-500">{user.email}</p>
+              <p className="text-sm text-gray-500">@{user.username}</p>
             </div>
           </div>
         </div>
@@ -76,14 +55,14 @@ export default function AuthPage() {
         <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 mb-3">
           <h2 className="text-sm font-bold text-gray-700 mb-2">Share Sandbagger</h2>
           <p className="text-xs text-gray-500 mb-3">
-            Send this link to friends so they can create an account and you can follow each other's rounds.
+            Send this link to friends so they can create an account and you can follow each other&apos;s rounds.
           </p>
           <button
             onClick={() => {
               if (navigator.share) {
                 navigator.share({
                   title: "Sandbagger — Golf Stats",
-                  text: "Track your golf rounds with me on Sandbagger!",
+                  text: `Follow me on Sandbagger! @${user.username}`,
                   url: window.location.origin,
                 });
               } else {
@@ -120,32 +99,24 @@ export default function AuthPage() {
 
       <form onSubmit={handleSubmit} className="space-y-3">
         {mode === "signup" && (
-          <>
-            <input
-              type="text"
-              placeholder="Display name"
-              value={displayName}
-              onChange={(e) => setDisplayName(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-green-600"
-              required
-            />
-            <input
-              type="text"
-              placeholder="Username (no spaces)"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-green-600"
-              required
-            />
-          </>
+          <input
+            type="text"
+            placeholder="Display name (e.g. Kathy Lemke)"
+            value={displayName}
+            onChange={(e) => setDisplayName(e.target.value)}
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-green-600"
+            required
+          />
         )}
         <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          placeholder="Username (no spaces)"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-green-600"
           required
+          autoCapitalize="none"
+          autoCorrect="off"
         />
         <input
           type="password"
@@ -169,7 +140,10 @@ export default function AuthPage() {
       </form>
 
       <button
-        onClick={() => setMode(mode === "login" ? "signup" : "login")}
+        onClick={() => {
+          setMode(mode === "login" ? "signup" : "login");
+          setError("");
+        }}
         className="w-full text-center text-sm text-green-700 font-medium mt-4"
       >
         {mode === "login"
@@ -181,17 +155,18 @@ export default function AuthPage() {
 }
 
 function ProfileEditor({ onSaved }: { onSaved: () => void }) {
-  const { user, profile } = useAuth();
-  const [displayName, setDisplayName] = useState(profile?.display_name || "");
-  const [username, setUsername] = useState(profile?.username || "");
-  const [handicap, setHandicap] = useState(profile?.handicap?.toString() || "");
-  const [homeCourse, setHomeCourse] = useState(profile?.home_course || "");
-  const [bio, setBio] = useState(profile?.bio || "");
+  const { user } = useAuth();
+  const [displayName, setDisplayName] = useState(user?.display_name || "");
+  const [username, setUsername] = useState(user?.username || "");
+  const [handicap, setHandicap] = useState(user?.handicap?.toString() || "");
+  const [homeCourse, setHomeCourse] = useState(user?.home_course || "");
+  const [bio, setBio] = useState(user?.bio || "");
   const [saving, setSaving] = useState(false);
 
   const save = async () => {
     if (!user) return;
     setSaving(true);
+    const { supabase } = await import("@/lib/supabase");
     await supabase.from("sb_profiles").update({
       display_name: displayName,
       username: username.toLowerCase().replace(/[^a-z0-9_]/g, ""),

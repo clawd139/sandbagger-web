@@ -10,6 +10,7 @@ import {
   parseNotes,
   calcRoundStats,
   detectTournaments,
+  totalScoreColor,
 } from "@/lib/constants";
 import type { Round, Course, HoleScore } from "@/lib/constants";
 import ScoreBadge from "@/components/ScoreBadge";
@@ -19,7 +20,7 @@ interface RoundWithCourse extends Round {
 }
 
 export default function RoundsPage() {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const activeUserId = user?.id || USER_ID;
   const [rounds, setRounds] = useState<RoundWithCourse[]>([]);
   const [loading, setLoading] = useState(true);
@@ -28,6 +29,7 @@ export default function RoundsPage() {
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
 
   const loadRounds = useCallback(async () => {
+    if (authLoading) return;
     const { data: roundsData } = await supabase
       .from("sb_rounds")
       .select("*, sb_courses(id, name, city, state, num_holes)")
@@ -56,7 +58,7 @@ export default function RoundsPage() {
       });
       setHoleScoresByRound(byRound);
     }
-  }, []);
+  }, [activeUserId, authLoading]);
 
   useEffect(() => {
     loadRounds();
@@ -112,6 +114,7 @@ export default function RoundsPage() {
             const scores = holeScoresByRound[round.id] || [];
             const stats = calcRoundStats(scores);
             const hasWedge = scores.some((s) => s.wedge_and_in != null);
+            const roundPar = scores.reduce((sum, s) => sum + (s.par || 0), 0);
 
             return (
               <div
@@ -137,7 +140,7 @@ export default function RoundsPage() {
                       </p>
                     </div>
                     <div className="text-right">
-                      <span className="text-3xl font-bold text-amber-500">{round.total_score}</span>
+                      <span className="text-3xl font-bold" style={{ color: totalScoreColor(round.total_score, roundPar) }}>{round.total_score}</span>
                     </div>
                   </div>
 

@@ -161,6 +161,16 @@ export function scoreBadgeColor(score: number, par: number): string {
   return "#dc2626"; // Double+ — red
 }
 
+// Total score color relative to par
+// Even par: green, under par: red, over par: black
+export function totalScoreColor(totalScore: number, totalPar: number): string {
+  if (!totalScore || !totalPar) return "#000000";
+  const diff = totalScore - totalPar;
+  if (diff < 0) return "#D32F2F"; // under par — red
+  if (diff === 0) return "#0a7d32"; // even — green
+  return "#000000"; // over par — black
+}
+
 // Calculate round stats from hole scores
 export function calcRoundStats(holes: HoleScore[]) {
   const fwHoles = holes.filter((h) => h.fairway_hit !== null);

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/lib/auth";
-import { formatDate, parseNotes, calcRoundStats } from "@/lib/constants";
+import { formatDate, parseNotes, calcRoundStats, totalScoreColor } from "@/lib/constants";
 import type { Round, Course, HoleScore } from "@/lib/constants";
 
 interface Profile {
@@ -22,7 +22,8 @@ interface FeedRound extends Round {
 }
 
 export default function FeedPage() {
-  const { user, profile } = useAuth();
+  const { user } = useAuth();
+  const profile = user; // user IS the profile now
   const [followingIds, setFollowingIds] = useState<string[]>([]);
   const [feedRounds, setFeedRounds] = useState<FeedRound[]>([]);
   const [scoresByRound, setScoresByRound] = useState<Record<string, HoleScore[]>>({});
@@ -194,6 +195,8 @@ export default function FeedPage() {
         <div className="space-y-3">
           {feedRounds.map((round) => {
             const stats = calcRoundStats(scoresByRound[round.id] || []);
+            const roundScores = scoresByRound[round.id] || [];
+            const roundPar = roundScores.reduce((sum, s) => sum + (s.par || 0), 0);
             const isOwnRound = round.user_id === user.id;
             const poster = round.sb_profiles;
             return (
@@ -233,7 +236,10 @@ export default function FeedPage() {
                         {stats.birdies > 0 && <span>🐦 {stats.birdies}</span>}
                       </div>
                     </div>
-                    <span className="text-3xl font-bold text-green-700 ml-2">
+                    <span
+                      className="text-3xl font-bold ml-2"
+                      style={{ color: totalScoreColor(round.total_score, roundPar) }}
+                    >
                       {round.total_score}
                     </span>
                   </div>

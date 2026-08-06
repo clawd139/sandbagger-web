@@ -2,11 +2,10 @@
 
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { supabase } from "@/lib/supabase";
-import type { User } from "@supabase/supabase-js";
 
 interface Profile {
   id: string;
-  username: string | null;
+  username: string;
   display_name: string | null;
   handicap: number | null;
   home_course: string | null;
@@ -14,74 +13,100 @@ interface Profile {
 }
 
 interface AuthContextType {
-  user: User | null;
-  profile: Profile | null;
+  user: Profile | null;
   loading: boolean;
-  signOut: () => Promise<void>;
+  signIn: (username: string, password: string) => Promise<{ error: string | null }>;
+  signUp: (username: string, password: string, displayName: string) => Promise<{ error: string | null }>;
+  signOut: () => void;
   refreshProfile: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
-  profile: null,
   loading: true,
-  signOut: async () => {},
+  signIn: async () => ({ error: "not implemented" }),
+  signUp: async () => ({ error: "not implemented" }),
+  signOut: () => {},
   refreshProfile: async () => {},
 });
 
+const STORAGE_KEY = "sandbagger_session";
+
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [profile, setProfile] = useState<Profile | null>(null);
+  const [user, setUser] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const loadProfile = async (uid: string) => {
-    const { data } = await supabase
-      .from("sb_profiles")
-      .select("id, username, display_name, handicap, home_course, bio")
-      .eq("id", uid)
-      .single();
-    setProfile(data as Profile | null);
-  };
-
   useEffect(() => {
-    // Check active session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session?.user) {
-        setUser(session.user);
-        loadProfile(session.user.id);
+    // Load session from localStorage
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const session = JSON.parse(stored) as Profile;
+        setUser(session);
       }
-      setLoading(false);
-    });
-
-    // Listen for auth changes
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        if (session?.user) {
-          setUser(session.user);
-          await loadProfile(session.user.id);
-        } else {
-          setUser(null);
-          setProfile(null);
-        }
-        setLoading(false);
-      }
-    );
-
-    return () => listener.subscription.unsubscribe();
+    } catch {}
+    setLoading(false);
   }, []);
 
-  const signOut = async () => {
-    await supabase.auth.signOut();
+  const signIn = async (username: string, password: string) => {
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+      const data = await res.json();
+      if (!res.ok) return { error: data.error || "Login failed" };
+
+      const profile = data.user as Profile;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
+      setUser(profile);
+      return { error: null };
+    } catch {
+      return { error: "Network error" };
+    }
+  };
+
+  const signUp = async (username: string, password: string, displayName: string) => {
+    try {
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password, display_name: displayName }),
+      });
+      const data = await res.json();
+      if (!res.ok) return { error: data.error || "Sign up failed" };
+
+      const profile = data.user as Profile;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
+      setUser(profile);
+      return { error: null };
+    } catch {
+      return { error: "Network error" };
+    }
+  };
+
+  const signOut = () => {
+    localStorage.removeItem(STORAGE_KEY);
     setUser(null);
-    setProfile(null);
   };
 
   const refreshProfile = async () => {
-    if (user) await loadProfile(user.id);
+    if (!user) return;
+    const { data } = await supabase
+      .from("sb_profiles")
+      .select("id, username, display_name, handicap, home_course, bio")
+      .eq("id", user.id)
+      .single();
+    if (data) {
+      const profile = data as Profile;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
+      setUser(profile);
+    }
   };
 
   return (
-    <AuthContext.Provider value={{ user, profile, loading, signOut, refreshProfile }}>
+    <AuthContext.Provider value={{ user, loading, signIn, signUp, signOut, refreshProfile }}>
       {children}
     </AuthContext.Provider>
   );
