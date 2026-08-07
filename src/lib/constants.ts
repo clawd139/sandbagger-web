@@ -115,10 +115,21 @@ export function parseNotes(notes: string | null): Record<string, any> {
   }
 }
 
+// Parse a date string as local time (avoids UTC off-by-one for date-only strings)
+function parseDateLocal(dateStr: string): Date {
+  // Date-only ISO strings (YYYY-MM-DD) are interpreted as UTC by new Date(),
+  // which shifts the displayed date back a day in negative-offset timezones.
+  // Appending T00:00:00 forces local-time parsing.
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+    return new Date(dateStr + "T00:00:00");
+  }
+  return new Date(dateStr);
+}
+
 // Format a date string for display
 export function formatDate(dateStr: string): string {
   try {
-    return new Date(dateStr).toLocaleDateString("en-US", {
+    return parseDateLocal(dateStr).toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",
       year: "numeric",
@@ -131,7 +142,7 @@ export function formatDate(dateStr: string): string {
 // Format a short date
 export function formatShortDate(dateStr: string): string {
   try {
-    return new Date(dateStr).toLocaleDateString("en-US", {
+    return parseDateLocal(dateStr).toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",
     });
