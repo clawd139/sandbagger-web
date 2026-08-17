@@ -162,16 +162,13 @@ function computeStats(values: number[]) {
   return { n, min, q1, median, q3, max, mean, iqr, stddev };
 }
 
-function isPutt(shot: any): boolean {
+function isPutt(shot: any, startingLie?: string): boolean {
+  // A shot is only a putt if it started on the green or fringe.
+  // A chip with a putter from off the green does NOT count.
+  const lie = safeStr(startingLie);
+  if (lie !== "Green" && lie !== "Fringe") return false;
   if (shot?.is_putt === true) return true;
-  return (
-    shot?.putt_result != null ||
-    shot?.putt_break != null ||
-    shot?.putt_distance != null ||
-    shot?.putt_hit_line != null ||
-    shot?.putt_hit_speed != null ||
-    shot?.putt_slope != null
-  );
+  return shot?.putt_result != null;
 }
 
 function passes(shot: any, field: string, filterValue: string): boolean {
@@ -241,12 +238,16 @@ function buildHittingFromMap(allShots: any[]): Map<string, string> {
   return m;
 }
 
-function buildProximityMap(allShots: any[]): Map<string, number> {
+function buildProximityMap(
+  allShots: any[],
+  hittingFromMap: Map<string, string>
+): Map<string, number> {
   const m = new Map<string, number>();
   allShots.forEach((s, i) => {
     const key = `${s.hole_number}-${i}`;
     let prox: number | null = null;
-    if (isPutt(s)) {
+    const startingLie = hittingFromMap.get(key) || "";
+    if (isPutt(s, startingLie)) {
       prox = normalizePuttResult(s.putt_result) === "made" ? 0 : safeNum(s.putt_distance_remaining);
     } else if (safeStr(s.intention) === "hit_green") {
       const onGreen = safeStr(s.result_lie) === "Green";
@@ -407,7 +408,10 @@ export default function StatsPage() {
   }, [filteredScores]);
 
   const hittingFromMap = useMemo(() => buildHittingFromMap(allShots), [allShots]);
-  const proximityMap = useMemo(() => buildProximityMap(allShots), [allShots]);
+  const proximityMap = useMemo(
+    () => buildProximityMap(allShots, hittingFromMap),
+    [allShots, hittingFromMap]
+  );
 
   // Wedge & In
   const wiHoles = filteredScores.filter((s) => s.wedge_and_in != null);
@@ -457,12 +461,18 @@ export default function StatsPage() {
 
   // ===== Shot filtering for advanced tabs =====
   const teeShots = allShots.filter(
-    (s) => safeStr(s.intention) === "hit_fairway" && !isPutt(s)
+    (s, i) =>
+      safeStr(s.intention) === "hit_fairway" &&
+      !isPutt(s, hittingFromMap.get(`${s.hole_number}-${i}`) || "")
   );
   const approachShots = allShots.filter(
-    (s) => safeStr(s.intention) === "hit_green" && !isPutt(s)
+    (s, i) =>
+      safeStr(s.intention) === "hit_green" &&
+      !isPutt(s, hittingFromMap.get(`${s.hole_number}-${i}`) || "")
   );
-  const puttShots = allShots.filter((s) => isPutt(s));
+  const puttShots = allShots.filter(
+    (s, i) => isPutt(s, hittingFromMap.get(`${s.hole_number}-${i}`) || "")
+  );
 
   return (
     <div className="px-4 pt-4 pb-4">

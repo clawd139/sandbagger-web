@@ -7,6 +7,7 @@ const navItems = [
   { href: "/", label: "Home", icon: "⌂" },
   { href: "/feed", label: "Feed", icon: "👥" },
   { href: "/rounds/new", label: "Log", icon: "✏️" },
+  { href: "/training", label: "Train", icon: "🎯" },
   { href: "/stats", label: "Stats", icon: "📊" },
   { href: "/auth", label: "Profile", icon: "👤" },
 ];
@@ -20,6 +21,7 @@ export default function BottomNav() {
     if (href === "/rounds") return pathname === "/rounds" || (pathname.startsWith("/rounds") && !pathname.startsWith("/rounds/new"));
     if (href === "/courses") return pathname.startsWith("/courses");
     if (href === "/stats") return pathname.startsWith("/stats");
+    if (href === "/training") return pathname.startsWith("/training");
     return pathname === href;
   };
 

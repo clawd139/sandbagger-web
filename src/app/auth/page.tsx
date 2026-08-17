@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useAuth } from "@/lib/auth";
+import BagBuilder from "@/components/BagBuilder";
 
 export default function AuthPage() {
   const { user, signIn, signUp, signOut, refreshProfile } = useAuth();
@@ -50,6 +51,9 @@ export default function AuthPage() {
 
         {/* Edit profile */}
         <ProfileEditor onSaved={refreshProfile} />
+
+        {/* Bag builder */}
+        <BagBuilder />
 
         {/* Share button */}
         <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 mb-3">
