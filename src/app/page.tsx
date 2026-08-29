@@ -106,7 +106,7 @@ export default function Home() {
           <StatCard label="Avg Score" value={avgScore != null ? String(avgScore) : "—"} />
           <StatCard label="Fairways" value={stats.fwPct != null ? `${stats.fwPct}%` : "—"} />
           <StatCard label="GIR" value={stats.girPct != null ? `${stats.girPct}%` : "—"} />
-          <StatCard label="Putts/Hole" value={stats.avgPutts != null ? stats.avgPutts.toFixed(1) : "—"} />
+          <StatCard label="Putts" value={stats.totalPutts != null ? String(stats.totalPutts) : "—"} />
         </div>
       )}
 
@@ -122,7 +122,7 @@ export default function Home() {
         </div>
         {recentRounds.length === 0 && !loading ? (
           <div className="bg-white rounded-xl p-4 text-center border border-gray-100">
-            <p className="text-sm text-gray-400">No rounds yet</p>
+            <p className="text-sm text-gray-800">No rounds yet</p>
             <Link href="/rounds/new" className="text-xs text-green-700 font-medium mt-1 inline-block">
               Log your first round →
             </Link>
@@ -146,7 +146,7 @@ export default function Home() {
                       <p className="font-semibold text-gray-900 text-sm truncate">
                         {round.sb_courses?.name || "Unknown Course"}
                       </p>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-gray-700">
                         {formatDate(round.date_played)}
                         {isTournament && <span className="ml-1">🏆</span>}
                       </p>
@@ -154,7 +154,7 @@ export default function Home() {
                     <div className="text-right">
                       <span className="text-2xl font-bold" style={{ color: totalScoreColor(round.total_score, roundPar) }}>{round.total_score}</span>
                       {round.sb_courses && (
-                        <p className="text-[10px] text-gray-400">
+                        <p className="text-[10px] text-gray-800">
                           {round.sb_courses.num_holes} holes
                         </p>
                       )}
@@ -171,7 +171,7 @@ export default function Home() {
       <div>
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-sm font-bold text-gray-700">Courses</h2>
-          <span className="text-xs text-gray-400">{courses.length} total</span>
+          <span className="text-xs text-gray-800">{courses.length} total</span>
         </div>
         <input
           type="search"
@@ -181,7 +181,7 @@ export default function Home() {
           className="w-full px-4 py-2 mb-2 rounded-lg border border-gray-200 bg-white text-sm focus:outline-none focus:border-green-600"
         />
         {loading ? (
-          <div className="text-center py-10 text-gray-400 text-sm">Loading courses...</div>
+          <div className="text-center py-10 text-gray-800 text-sm">Loading courses...</div>
         ) : (
           <div className="space-y-2">
             {filteredCourses.map((course) => (
@@ -193,7 +193,7 @@ export default function Home() {
                 <div className="flex items-start justify-between">
                   <div>
                     <h3 className="font-semibold text-gray-900">{course.name}</h3>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-gray-700">
                       {course.city}
                       {course.state ? `, ${course.state}` : ""}
                     </p>
@@ -205,7 +205,7 @@ export default function Home() {
               </Link>
             ))}
             {filteredCourses.length === 0 && (
-              <div className="text-center py-10 text-gray-400 text-sm">No courses found</div>
+              <div className="text-center py-10 text-gray-800 text-sm">No courses found</div>
             )}
           </div>
         )}

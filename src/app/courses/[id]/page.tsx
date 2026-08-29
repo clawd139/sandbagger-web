@@ -54,13 +54,13 @@ export default function CourseDetailPage({ params }: { params: Promise<{ id: str
   }, [id]);
 
   if (loading) {
-    return <div className="px-4 pt-10 text-center text-gray-400 text-sm">Loading course...</div>;
+    return <div className="px-4 pt-10 text-center text-gray-800 text-sm">Loading course...</div>;
   }
 
   if (!course) {
     return (
       <div className="px-4 pt-10 text-center">
-        <p className="text-gray-400 text-sm">Course not found</p>
+        <p className="text-gray-800 text-sm">Course not found</p>
         <Link href="/courses" className="text-green-700 text-sm font-medium mt-2 inline-block">
           ← Back to Courses
         </Link>
@@ -110,7 +110,7 @@ export default function CourseDetailPage({ params }: { params: Promise<{ id: str
 
       {/* Course header */}
       <h1 className="text-xl font-bold text-gray-900">{course.name}</h1>
-      <p className="text-sm text-gray-500 mb-3">
+      <p className="text-sm text-gray-700 mb-3">
         {course.city}
         {course.state ? `, ${course.state}` : ""}
       </p>
@@ -139,7 +139,7 @@ export default function CourseDetailPage({ params }: { params: Promise<{ id: str
                   <span className={`text-xs font-medium ${isActive ? "text-white" : "text-gray-700"}`}>
                     {tee.name || tee.color}
                   </span>
-                  <span className={`text-[10px] ${isActive ? "text-green-200" : "text-gray-400"}`}>
+                  <span className={`text-[10px] ${isActive ? "text-green-200" : "text-gray-800"}`}>
                     {(tee.total_yardage || 0).toLocaleString()}
                   </span>
                 </button>
@@ -189,9 +189,9 @@ export default function CourseDetailPage({ params }: { params: Promise<{ id: str
               {holeNumbers.slice(0, 9).map((n) => (
                 <tr key={n} className="border-t border-gray-100">
                   <td className="px-2 py-1.5 text-center font-bold text-green-700 sticky left-0 bg-white z-10">{n}</td>
-                  {teeSets.length > 0 && <td className="px-2 py-1.5 text-center text-gray-500">{getHcp(n) ?? "—"}</td>}
-                  <td className="px-2 py-1.5 text-center text-gray-600">{getPar(n)}</td>
-                  <td className="px-2 py-1.5 text-center text-gray-500">{getYardage(n) || "—"}</td>
+                  {teeSets.length > 0 && <td className="px-2 py-1.5 text-center text-gray-700">{getHcp(n) ?? "—"}</td>}
+                  <td className="px-2 py-1.5 text-center text-gray-800">{getPar(n)}</td>
+                  <td className="px-2 py-1.5 text-center text-gray-700">{getYardage(n) || "—"}</td>
                 </tr>
               ))}
               {/* Out total */}
@@ -205,9 +205,9 @@ export default function CourseDetailPage({ params }: { params: Promise<{ id: str
               {holeNumbers.slice(9).map((n) => (
                 <tr key={n} className="border-t border-gray-100">
                   <td className="px-2 py-1.5 text-center font-bold text-green-700 sticky left-0 bg-white z-10">{n}</td>
-                  {teeSets.length > 0 && <td className="px-2 py-1.5 text-center text-gray-500">{getHcp(n) ?? "—"}</td>}
-                  <td className="px-2 py-1.5 text-center text-gray-600">{getPar(n)}</td>
-                  <td className="px-2 py-1.5 text-center text-gray-500">{getYardage(n) || "—"}</td>
+                  {teeSets.length > 0 && <td className="px-2 py-1.5 text-center text-gray-700">{getHcp(n) ?? "—"}</td>}
+                  <td className="px-2 py-1.5 text-center text-gray-800">{getPar(n)}</td>
+                  <td className="px-2 py-1.5 text-center text-gray-700">{getYardage(n) || "—"}</td>
                 </tr>
               ))}
               {/* In total */}
@@ -248,10 +248,10 @@ export default function CourseDetailPage({ params }: { params: Promise<{ id: str
                   <div className="flex-1">
                     <p className="text-sm font-medium text-gray-900">{tee.name || tee.color}</p>
                   </div>
-                  <div className="text-xs text-gray-500 text-right">
+                  <div className="text-xs text-gray-700 text-right">
                     {(tee.total_yardage || 0).toLocaleString()} yds · {tee.total_par} par
                     <br />
-                    <span className="text-gray-400">{tee.rating}/{tee.slope}</span>
+                    <span className="text-gray-800">{tee.rating}/{tee.slope}</span>
                   </div>
                 </div>
               );

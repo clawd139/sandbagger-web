@@ -44,7 +44,7 @@ export default function AuthPage() {
               <p className="font-semibold text-gray-900">
                 {user.display_name || user.username}
               </p>
-              <p className="text-sm text-gray-500">@{user.username}</p>
+              <p className="text-sm text-gray-700">@{user.username}</p>
             </div>
           </div>
         </div>
@@ -58,7 +58,7 @@ export default function AuthPage() {
         {/* Share button */}
         <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 mb-3">
           <h2 className="text-sm font-bold text-gray-700 mb-2">Share Sandbagger</h2>
-          <p className="text-xs text-gray-500 mb-3">
+          <p className="text-xs text-gray-700 mb-3">
             Send this link to friends so they can create an account and you can follow each other&apos;s rounds.
           </p>
           <button
@@ -96,8 +96,15 @@ export default function AuthPage() {
     <div className="px-4 pt-8 max-w-md mx-auto">
       <div className="text-center mb-6">
         <h1 className="text-3xl font-bold text-green-800">Sandbagger</h1>
-        <p className="text-sm text-gray-500 mt-1">
+        <p className="text-sm text-gray-700 mt-1">
           {mode === "login" ? "Welcome back" : "Create your account"}
+        </p>
+      </div>
+
+      <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-4 flex items-start gap-2">
+        <span className="text-amber-600 text-lg leading-none mt-0.5">⚠️</span>
+        <p className="text-xs text-amber-800 font-medium">
+          Developmental web app — do not upload sensitive information.
         </p>
       </div>
 

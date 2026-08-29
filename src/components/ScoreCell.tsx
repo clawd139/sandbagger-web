@@ -20,7 +20,7 @@ export default function ScoreCell({
   mini?: boolean;
 }) {
   if (!score || !par) {
-    return <span className="font-bold text-gray-400" style={{ fontSize: size }}>—</span>;
+    return <span className="font-bold text-gray-800" style={{ fontSize: size }}>—</span>;
   }
 
   const diff = score - par;

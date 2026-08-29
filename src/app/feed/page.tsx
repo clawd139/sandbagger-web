@@ -124,7 +124,7 @@ export default function FeedPage() {
     return (
       <div className="px-4 pt-20 text-center">
         <p className="text-lg font-bold text-green-800">Sign in to see the feed</p>
-        <p className="text-sm text-gray-400 mt-1">Create an account or log in to follow friends</p>
+        <p className="text-sm text-gray-800 mt-1">Create an account or log in to follow friends</p>
         <Link href="/auth" className="mt-4 inline-block text-sm px-4 py-2 rounded-full bg-green-700 text-white font-semibold">
           Sign In
         </Link>
@@ -159,7 +159,7 @@ export default function FeedPage() {
                   <p className="font-semibold text-gray-900 text-sm truncate">
                     {p.display_name || p.username}
                   </p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-700">
                     @{p.username}
                     {p.handicap != null && ` · ${p.handicap} HDCP`}
                   </p>
@@ -168,7 +168,7 @@ export default function FeedPage() {
                   onClick={() => toggleFollow(p.id)}
                   className={`px-3 py-1.5 rounded-full text-xs font-semibold ${
                     followingSet.has(p.id)
-                      ? "bg-gray-200 text-gray-600"
+                      ? "bg-gray-200 text-gray-800"
                       : "bg-green-700 text-white"
                   }`}
                 >
@@ -182,12 +182,12 @@ export default function FeedPage() {
 
       {/* Feed */}
       {loading ? (
-        <div className="text-center py-10 text-gray-400 text-sm">Loading feed...</div>
+        <div className="text-center py-10 text-gray-800 text-sm">Loading feed...</div>
       ) : feedRounds.length === 0 ? (
         <div className="text-center py-10">
           <p className="text-4xl mb-2">🏌️</p>
           <p className="text-sm font-bold text-gray-700">No rounds in your feed yet</p>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-gray-800 mt-1">
             Search for friends above and follow them to see their rounds here
           </p>
         </div>
@@ -215,7 +215,7 @@ export default function FeedPage() {
                         ? "You"
                         : poster?.display_name || poster?.username || "Unknown"}
                     </p>
-                    <p className="text-xs text-gray-400">{formatDate(round.date_played)}</p>
+                    <p className="text-xs text-gray-800">{formatDate(round.date_played)}</p>
                   </div>
                   {parseNotes(round.notes).round_type === "tournament" && (
                     <span className="text-sm">🏆</span>
@@ -229,10 +229,10 @@ export default function FeedPage() {
                       <p className="font-semibold text-gray-900 text-sm truncate">
                         {round.sb_courses?.name || "Unknown Course"}
                       </p>
-                      <div className="flex gap-3 mt-1 text-xs text-gray-600">
+                      <div className="flex gap-3 mt-1 text-xs text-gray-800">
                         {stats.fwPct != null && <span>FW {stats.fwPct}%</span>}
                         {stats.girPct != null && <span>GIR {stats.girPct}%</span>}
-                        {stats.avgPutts != null && <span>{stats.avgPutts.toFixed(1)} putts</span>}
+                        {stats.totalPutts != null && stats.totalPutts > 0 && <span>{stats.totalPutts} putts</span>}
                         {stats.birdies > 0 && <span>🐦 {stats.birdies}</span>}
                       </div>
                     </div>

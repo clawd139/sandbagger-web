@@ -230,3 +230,142 @@ export function sanitizeShots(shots: any[]): any[] {
   if (!Array.isArray(shots)) return [];
   return shots.filter((s) => s && typeof s === "object");
 }
+
+// ============ Per-round advanced stats ============
+
+// Compute 3 advanced stats from a single round's hole scores:
+// - Feet of putts made (total distance of all made putts)
+// - Avg approach proximity to hole (feet)
+// - Up & downs made/attempts (chip_pitch followed by exactly 1 putt)
+export function calcAdvancedRoundStats(holes: HoleScore[]): {
+  feetOfPuttsMade: number;
+  avgApproachProx: number | null;
+  upAndDownMade: number;
+  upAndDownAttempts: number;
+  hasData: boolean;
+} {
+  const safeStr = (v: any): string => (v == null ? "" : String(v));
+  const safeNum = (v: any): number | null => {
+    if (v == null || v === "") return null;
+    const n = Number(v);
+    return isNaN(n) ? null : n;
+  };
+
+  const isPutt = (shot: any, startingLie?: string): boolean => {
+    // If explicitly flagged as putt, count it regardless of starting lie
+    // (previous putt shots have no result_lie, so the lie check would fail
+    // for consecutive putts)
+    if (shot?.is_putt === true) return true;
+    if (shot?.putt_result != null) return true;
+    // Also check lie for shots not explicitly flagged
+    const lie = safeStr(startingLie);
+    if (lie === "Green" || lie === "Fringe") return true;
+    return false;
+  };
+
+  const normalizePuttResult = (r: any): string => {
+    const s = safeStr(r).toLowerCase().trim();
+    if (!s) return "miss-short";
+    if (s.includes("made") || s === "make" || s === "in") return "made";
+    if (s.includes("lip-out-left") || s.includes("lipoutleft") || s.includes("lipped-left"))
+      return "lip-out-left";
+    if (s.includes("lip-out-right") || s.includes("lipoutright") || s.includes("lipped-right"))
+      return "lip-out-right";
+    if (s.includes("short")) return "miss-short";
+    if (s.includes("long")) return "miss-long";
+    if (s.includes("left")) return "miss-left";
+    if (s.includes("right")) return "miss-right";
+    return "miss-short";
+  };
+
+  // Parse all shots from advanced-mode hole scores
+  const allShots: any[] = [];
+  holes.forEach((hs) => {
+    const n = parseNotes(hs.notes);
+    if (n.mode === "advanced" && Array.isArray(n.shots)) {
+      n.shots.forEach((s: any) => {
+        if (s && typeof s === "object") {
+          allShots.push({ ...s, hole_number: hs.hole_number });
+        }
+      });
+    }
+  });
+
+  if (allShots.length === 0) {
+    return {
+      feetOfPuttsMade: 0,
+      avgApproachProx: null,
+      upAndDownMade: 0,
+      upAndDownAttempts: 0,
+      hasData: false,
+    };
+  }
+
+  // Build hittingFromMap: previous shot's result_lie per hole
+  const hittingFromMap = new Map<string, string>();
+  const lastByHole = new Map<number, number>();
+  allShots.forEach((s, i) => {
+    const h = Number(s.hole_number);
+    if (lastByHole.has(h)) {
+      hittingFromMap.set(`${h}-${i}`, safeStr(allShots[lastByHole.get(h)!].result_lie));
+    }
+    lastByHole.set(h, i);
+  });
+
+  // 1. Feet of putts made
+  let feetOfPuttsMade = 0;
+  allShots.forEach((s, i) => {
+    const startingLie = hittingFromMap.get(`${s.hole_number}-${i}`) || "";
+    if (isPutt(s, startingLie) && normalizePuttResult(s.putt_result) === "made") {
+      feetOfPuttsMade += safeNum(s.putt_distance) || 0;
+    }
+  });
+
+  // 2. Avg approach proximity (feet)
+  const approachProxValues: number[] = [];
+  allShots.forEach((s, i) => {
+    if (safeStr(s.intention) !== "hit_green") return;
+    if (isPutt(s, hittingFromMap.get(`${s.hole_number}-${i}`) || "")) return;
+    const dToHole = safeNum(s.distance_to_hole);
+    if (dToHole != null) {
+      approachProxValues.push(dToHole * 3); // yards → feet
+    }
+  });
+  const avgApproachProx = approachProxValues.length
+    ? approachProxValues.reduce((a, b) => a + b, 0) / approachProxValues.length
+    : null;
+
+  // 3. Up & downs: hole has chip_pitch, last chip followed by exactly 1 putt
+  const byHole = new Map<number, any[]>();
+  allShots.forEach((s) => {
+    const h = Number(s.hole_number);
+    if (!byHole.has(h)) byHole.set(h, []);
+    byHole.get(h)!.push(s);
+  });
+
+  let upAndDownAttempts = 0;
+  let upAndDownMade = 0;
+  byHole.forEach((holeShots) => {
+    const chipIdx = holeShots
+      .map((s, i) => (safeStr(s.intention) === "chip_pitch" ? i : -1))
+      .filter((i) => i >= 0)
+      .pop();
+    if (chipIdx == null) return;
+    upAndDownAttempts++;
+    const after = holeShots.slice(chipIdx + 1);
+    const puttsAfter = after.filter((s) => {
+      const globalIdx = allShots.indexOf(s);
+      return isPutt(s, hittingFromMap.get(`${s.hole_number}-${globalIdx}`) || "");
+    });
+    // 0 putts = chip-in, 1 putt = standard up & down — both count as made
+    if (puttsAfter.length <= 1) upAndDownMade++;
+  });
+
+  return {
+    feetOfPuttsMade,
+    avgApproachProx,
+    upAndDownMade,
+    upAndDownAttempts,
+    hasData: true,
+  };
+}

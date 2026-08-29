@@ -152,7 +152,7 @@ export default function BagBuilder() {
     return (
       <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 mb-3">
         <h2 className="text-sm font-bold text-gray-700 mb-2">Build Your Bag</h2>
-        <p className="text-xs text-gray-400">Loading…</p>
+        <p className="text-xs text-gray-800">Loading…</p>
       </div>
     );
   }
@@ -165,15 +165,15 @@ export default function BagBuilder() {
     <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 mb-3 space-y-3">
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-bold text-gray-700">Build Your Bag</h2>
-        <span className="text-xs text-gray-400">{enabledCount} clubs</span>
+        <span className="text-xs text-gray-800">{enabledCount} clubs</span>
       </div>
-      <p className="text-xs text-gray-500">
+      <p className="text-xs text-gray-700">
         Tap to toggle the clubs you carry. Add an optional custom name (e.g. brand/model) for any club.
       </p>
 
       {groups.map((group) => (
         <div key={group}>
-          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
+          <p className="text-xs font-semibold text-gray-700 uppercase tracking-wide mb-1.5">
             {group}
           </p>
           <div className="space-y-1.5">
@@ -196,7 +196,7 @@ export default function BagBuilder() {
                   >
                     <span
                       className={`text-sm font-medium ${
-                        enabled ? "text-gray-900" : "text-gray-500"
+                        enabled ? "text-gray-900" : "text-gray-700"
                       }`}
                     >
                       {c.label}

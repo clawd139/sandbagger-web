@@ -439,7 +439,7 @@ export default function StatsPage() {
   // ===== Loading / Empty =====
   if (loading) {
     return (
-      <div className="px-4 pt-10 text-center text-gray-400 text-sm">Loading stats...</div>
+      <div className="px-4 pt-10 text-center text-gray-800 text-sm">Loading stats...</div>
     );
   }
 
@@ -448,7 +448,7 @@ export default function StatsPage() {
       <div className="px-4 pt-20 text-center">
         <p className="text-4xl mb-3">📊</p>
         <p className="text-lg font-bold text-green-800">No stats yet</p>
-        <p className="text-sm text-gray-400 mt-1">Log some rounds to see your stats!</p>
+        <p className="text-sm text-gray-800 mt-1">Log some rounds to see your stats!</p>
         <Link
           href="/rounds/new"
           className="mt-4 inline-block text-sm px-4 py-2 rounded-full bg-green-700 text-white font-semibold"
@@ -487,7 +487,7 @@ export default function StatsPage() {
             className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-colors ${
               range === opt
                 ? "bg-green-700 text-white"
-                : "bg-white text-gray-600 border border-gray-200"
+                : "bg-white text-gray-800 border border-gray-200"
             }`}
           >
             {opt}
@@ -542,7 +542,7 @@ export default function StatsPage() {
               </div>
             </div>
           </div>
-          <div className="flex justify-between text-xs text-gray-500">
+          <div className="flex justify-between text-xs text-gray-700">
             <span>
               <span className="inline-block w-2.5 h-2.5 rounded-full bg-amber-500 mr-1 align-middle" />
               Left {fwMissL}
@@ -564,13 +564,13 @@ export default function StatsPage() {
           <h2 className="text-sm font-bold text-gray-700">
             Advanced Stats {allShots.length > 0 && `(${allShots.length} shots)`}
           </h2>
-          <span className="text-xs text-gray-400">{advancedOpen ? "▲" : "▼"}</span>
+          <span className="text-xs text-gray-800">{advancedOpen ? "▲" : "▼"}</span>
         </button>
 
         {advancedOpen && (
           <div className="mt-3">
             {allShots.length === 0 ? (
-              <p className="text-xs text-gray-400 text-center py-4">
+              <p className="text-xs text-gray-800 text-center py-4">
                 No advanced shot data tracked yet.
               </p>
             ) : (
@@ -584,7 +584,7 @@ export default function StatsPage() {
                       className={`flex-1 py-1.5 rounded-full text-xs font-semibold capitalize transition-colors ${
                         advTab === t
                           ? "bg-green-700 text-white"
-                          : "bg-gray-100 text-gray-500"
+                          : "bg-gray-100 text-gray-700"
                       }`}
                     >
                       {t}
@@ -678,7 +678,7 @@ export default function StatsPage() {
                       <p className="text-sm font-semibold text-gray-900 truncate">
                         {round.sb_courses?.name || "Unknown Course"}
                       </p>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-gray-800">
                         {formatDate(round.date_played)}
                         {isTournament && " 🏆"}
                       </p>
@@ -696,7 +696,7 @@ export default function StatsPage() {
                     <div className="flex gap-1 overflow-x-auto pb-1 mt-2">
                       {rScores.map((hole, idx) => (
                         <div key={idx} className="flex flex-col items-center min-w-[26px]">
-                          <span className="text-[8px] text-gray-400">{hole.hole_number}</span>
+                          <span className="text-[8px] text-gray-800">{hole.hole_number}</span>
                           <ScoreCell
                             score={hole.score}
                             par={hole.par || 0}
@@ -806,7 +806,7 @@ export default function StatsPage() {
                     <span className="text-[10px] text-white font-bold">{c.avg} yds</span>
                   </div>
                 </div>
-                <span className="text-[10px] text-gray-400 w-10 text-right">{c.count} shots</span>
+                <span className="text-[10px] text-gray-800 w-10 text-right">{c.count} shots</span>
               </div>
             ))}
           </div>
@@ -860,14 +860,14 @@ function MiniStat({ label, value }: { label: string; value: string }) {
   return (
     <div className="bg-gray-50 rounded-lg p-2 text-center">
       <p className="text-lg font-bold text-green-700">{value}</p>
-      <p className="text-[10px] text-gray-500">{label}</p>
+      <p className="text-[10px] text-gray-700">{label}</p>
     </div>
   );
 }
 
 function ScoringTrend({ rounds }: { rounds: RoundWithCourse[] }) {
   const scores = rounds.map((r) => r.total_score).filter((s) => s > 0);
-  if (scores.length === 0) return <p className="text-xs text-gray-400">No scores.</p>;
+  if (scores.length === 0) return <p className="text-xs text-gray-800">No scores.</p>;
   const maxS = Math.max(...scores);
   const minS = Math.min(...scores);
   const top = maxS + 2;
@@ -880,7 +880,7 @@ function ScoringTrend({ rounds }: { rounds: RoundWithCourse[] }) {
         const isBest = s === minS;
         return (
           <div key={i} className="flex-1 flex flex-col items-center justify-end h-full">
-            <span className="text-[9px] text-gray-500 mb-0.5">{s}</span>
+            <span className="text-[9px] text-gray-700 mb-0.5">{s}</span>
             <div
               className="w-full rounded-t min-h-[3px]"
               style={{
@@ -888,7 +888,7 @@ function ScoringTrend({ rounds }: { rounds: RoundWithCourse[] }) {
                 backgroundColor: isBest ? GOLD : PRIMARY,
               }}
             />
-            <span className="text-[8px] text-gray-400 mt-1 leading-tight text-center truncate w-full">
+            <span className="text-[8px] text-gray-800 mt-1 leading-tight text-center truncate w-full">
               {formatDate(r.date_played).split(",")[0]}
             </span>
           </div>
@@ -942,7 +942,7 @@ function MissTendencyBar({
           const c = counts[d.key] || 0;
           if (c === 0) return null;
           return (
-            <span key={d.key} className="flex items-center text-[10px] text-gray-600">
+            <span key={d.key} className="flex items-center text-[10px] text-gray-800">
               <span
                 className="inline-block w-2 h-2 rounded-sm mr-1"
                 style={{ backgroundColor: d.color }}
@@ -965,12 +965,12 @@ function WhereEndedUp({ shots }: { shots: any[] }) {
   const entries = Object.entries(counts).sort((a, b) => b[1] - a[1]);
   const max = Math.max(...entries.map((e) => e[1]), 1);
   if (entries.length === 0)
-    return <p className="text-xs text-gray-400">No data.</p>;
+    return <p className="text-xs text-gray-800">No data.</p>;
   return (
     <div className="space-y-1">
       {entries.map(([lie, c]) => (
         <div key={lie} className="flex items-center gap-2">
-          <span className="text-[10px] text-gray-600 w-20 truncate">{lie}</span>
+          <span className="text-[10px] text-gray-800 w-20 truncate">{lie}</span>
           <div className="flex-1 h-4 bg-gray-100 rounded-full overflow-hidden">
             <div
               className="h-full rounded-full"
@@ -1002,7 +1002,7 @@ function ChipRow({
           className={`px-2.5 py-1 rounded-full text-[10px] font-semibold whitespace-nowrap transition-colors ${
             value === opt
               ? "bg-green-700 text-white"
-              : "bg-gray-100 text-gray-500"
+              : "bg-gray-100 text-gray-700"
           }`}
         >
           {opt}
@@ -1013,7 +1013,7 @@ function ChipRow({
 }
 
 function SubHeading({ children }: { children: React.ReactNode }) {
-  return <h3 className="text-xs font-bold text-gray-600 mt-3 mb-1.5">{children}</h3>;
+  return <h3 className="text-xs font-bold text-gray-800 mt-3 mb-1.5">{children}</h3>;
 }
 
 // ============ Tee Tab ============
@@ -1025,11 +1025,11 @@ function TeeTab({
   const filtered = shots;
 
   if (shots.length === 0)
-    return <p className="text-xs text-gray-400 text-center py-4">No tee shot data.</p>;
+    return <p className="text-xs text-gray-800 text-center py-4">No tee shot data.</p>;
 
   return (
     <div>
-      <p className="text-[10px] text-gray-400 mb-1">{filtered.length} tee shots</p>
+      <p className="text-[10px] text-gray-800 mb-1">{filtered.length} tee shots</p>
 
       <SubHeading>Miss Tendency</SubHeading>
       <MissTendencyBar shots={filtered} />
@@ -1105,7 +1105,7 @@ function ApproachTab({
   const proxStats = computeStats(proxValues);
 
   if (shots.length === 0)
-    return <p className="text-xs text-gray-400 text-center py-4">No approach shot data.</p>;
+    return <p className="text-xs text-gray-800 text-center py-4">No approach shot data.</p>;
 
   // Histogram buckets 0-80ft in 10ft steps + 80+
   const histBuckets = [
@@ -1131,7 +1131,7 @@ function ApproachTab({
       <SubHeading>Hitting From</SubHeading>
       <ChipRow options={froms} value={from} onChange={setFrom} />
 
-      <p className="text-[10px] text-gray-400 mt-2 mb-1">{filtered.length} approach shots</p>
+      <p className="text-[10px] text-gray-800 mt-2 mb-1">{filtered.length} approach shots</p>
 
       {/* Proximity stats */}
       {proxStats ? (
@@ -1156,19 +1156,19 @@ function ApproachTab({
               const c = histCounts[i];
               return (
                 <div key={b.label} className="flex-1 flex flex-col items-center">
-                  <span className="text-[8px] text-gray-400">{c > 0 ? c : ""}</span>
+                  <span className="text-[8px] text-gray-800">{c > 0 ? c : ""}</span>
                   <div
                     className="w-full rounded-t bg-green-600 min-h-[2px]"
                     style={{ height: `${(c / histMax) * 100}%`, minHeight: c > 0 ? "4px" : "0" }}
                   />
-                  <span className="text-[7px] text-gray-400 mt-0.5">{b.label}</span>
+                  <span className="text-[7px] text-gray-800 mt-0.5">{b.label}</span>
                 </div>
               );
             })}
           </div>
         </div>
       ) : (
-        <p className="text-xs text-gray-400 mt-2">No proximity data for these shots.</p>
+        <p className="text-xs text-gray-800 mt-2">No proximity data for these shots.</p>
       )}
 
       <SubHeading>Miss Tendency</SubHeading>
@@ -1184,7 +1184,7 @@ function ProxStat({ label, value }: { label: string; value: string }) {
   return (
     <div className="bg-gray-50 rounded px-1 py-1">
       <p className="text-sm font-bold text-green-700">{value}</p>
-      <p className="text-[8px] text-gray-400">{label}</p>
+      <p className="text-[8px] text-gray-800">{label}</p>
     </div>
   );
 }
@@ -1255,7 +1255,7 @@ function PuttingTab({
   });
 
   if (shots.length === 0)
-    return <p className="text-xs text-gray-400 text-center py-4">No putting data.</p>;
+    return <p className="text-xs text-gray-800 text-center py-4">No putting data.</p>;
 
   // Make % summary
   const made = filtered.filter((s) => normalizePuttResult(s.putt_result) === "made").length;
@@ -1341,7 +1341,7 @@ function PuttingTab({
       <SubHeading>Break</SubHeading>
       <ChipRow options={breaks} value={brk} onChange={setBrk} />
 
-      <p className="text-[10px] text-gray-400 mt-2 mb-1">{filtered.length} putts</p>
+      <p className="text-[10px] text-gray-800 mt-2 mb-1">{filtered.length} putts</p>
 
       {/* Putt Scatter Plot */}
       <SubHeading>Putt Scatter</SubHeading>
@@ -1354,13 +1354,13 @@ function PuttingTab({
           <p className="text-lg font-bold text-green-700">
             {makePct}%
           </p>
-          <p className="text-[10px] text-gray-500">
+          <p className="text-[10px] text-gray-700">
             {made}/{filtered.length}
           </p>
         </div>
         <div className="flex-1 bg-gray-50 rounded-lg p-2 text-center">
           <p className="text-lg font-bold text-green-700">{avgLeave.toFixed(1)}</p>
-          <p className="text-[10px] text-gray-500">Avg Leave (ft)</p>
+          <p className="text-[10px] text-gray-700">Avg Leave (ft)</p>
         </div>
       </div>
 
@@ -1373,7 +1373,7 @@ function PuttingTab({
           const pct = filtered.length ? (c / filtered.length) * 100 : 0;
           return (
             <div key={d.key} className="flex items-center gap-2">
-              <span className="text-[10px] text-gray-600 w-20 truncate">{d.key}</span>
+              <span className="text-[10px] text-gray-800 w-20 truncate">{d.key}</span>
               <div className="flex-1 h-4 bg-gray-100 rounded-full overflow-hidden">
                 <div
                   className="h-full rounded-full"
@@ -1390,14 +1390,14 @@ function PuttingTab({
 
       {/* Speed analysis */}
       <SubHeading>Speed Analysis</SubHeading>
-      <div className="text-[11px] text-gray-600 space-y-0.5">
+      <div className="text-[11px] text-gray-800 space-y-0.5">
         <div>Hit Speed: <b className="text-green-700">{speedHit}</b> &nbsp;|&nbsp; Missed Speed: <b className="text-red-600">{speedMissed}</b></div>
         <div>Hard: <b>{hardCount}</b> &nbsp;|&nbsp; Soft: <b>{softCount}</b></div>
       </div>
 
       {/* Line analysis */}
       <SubHeading>Line Analysis</SubHeading>
-      <div className="text-[11px] text-gray-600 space-y-0.5">
+      <div className="text-[11px] text-gray-800 space-y-0.5">
         <div>Hit Line: <b className="text-green-700">{lineHit}</b> &nbsp;|&nbsp; Missed Line: <b className="text-red-600">{lineMissed}</b></div>
         <div>Pull: <b>{pullCount}</b> &nbsp;|&nbsp; Push: <b>{pushCount}</b></div>
       </div>
@@ -1407,7 +1407,7 @@ function PuttingTab({
       <div className="overflow-x-auto">
         <table className="w-full text-[10px]">
           <thead>
-            <tr className="text-gray-400">
+            <tr className="text-gray-800">
               <th className="text-left font-medium py-1">Distance</th>
               <th className="text-center font-medium">Made</th>
               <th className="text-center font-medium">Bar</th>
@@ -1419,8 +1419,8 @@ function PuttingTab({
               const pct = d.total ? Math.round((d.made / d.total) * 100) : 0;
               return (
                 <tr key={d.label} className="border-t border-gray-100">
-                  <td className="py-1 text-gray-600">{d.label}</td>
-                  <td className="text-center text-gray-600">
+                  <td className="py-1 text-gray-800">{d.label}</td>
+                  <td className="text-center text-gray-800">
                     {d.made}/{d.total}
                   </td>
                   <td className="px-1">
@@ -1474,7 +1474,7 @@ function MakeList({
         const color = colorMap?.[key] || PRIMARY;
         return (
           <div key={key} className="flex items-center gap-2">
-            <span className="text-[10px] text-gray-600 w-16 truncate">{key}</span>
+            <span className="text-[10px] text-gray-800 w-16 truncate">{key}</span>
             <div className="flex-1 h-4 bg-gray-100 rounded-full overflow-hidden relative">
               <div
                 className="absolute inset-y-0 left-0 rounded-full"
@@ -1542,7 +1542,7 @@ function PuttScatter({ shots }: { shots: any[] }) {
       {/* Slope legend */}
       <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2 justify-center">
         {Object.entries(SLOPE_COLOR).map(([k, c]) => (
-          <span key={k} className="flex items-center text-[9px] text-gray-500">
+          <span key={k} className="flex items-center text-[9px] text-gray-700">
             <span className="inline-block w-2 h-2 rounded-full mr-1" style={{ backgroundColor: c }} />
             {k}
           </span>

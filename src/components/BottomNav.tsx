@@ -35,7 +35,7 @@ export default function BottomNav() {
               key={item.href}
               href={item.href}
               className={`flex flex-col items-center justify-center px-2 py-1 transition-colors ${
-                active ? "text-green-700" : "text-gray-400"
+                active ? "text-green-700" : "text-gray-800"
               }`}
             >
               <span className="text-base leading-none mb-0.5">{item.icon}</span>

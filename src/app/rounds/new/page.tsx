@@ -16,7 +16,7 @@ import PinScanner, { type PinData } from "@/components/PinScanner";
 // Wrapper with Suspense for useSearchParams (Next.js 16 requirement)
 export default function Page() {
   return (
-    <Suspense fallback={<div className="px-4 pt-4 text-gray-400 text-sm">Loading...</div>}>
+    <Suspense fallback={<div className="px-4 pt-4 text-gray-800 text-sm">Loading...</div>}>
       <NewRoundPage />
     </Suspense>
   );
@@ -234,7 +234,7 @@ function syncShots(shots: ShotData[], score: number): ShotData[] {
 function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div>
-      <span className="text-xs text-gray-500 block mb-1">{label}</span>
+      <span className="text-xs text-gray-700 block mb-1">{label}</span>
       {children}
     </div>
   );
@@ -260,7 +260,7 @@ function PillRow({
             type="button"
             onClick={() => onChange(v)}
             className={`px-2.5 py-1.5 rounded-full text-[11px] font-medium transition-colors ${
-              value === v ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"
+              value === v ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"
             }`}
           >
             {label}
@@ -286,7 +286,7 @@ function Counter({
 }) {
   return (
     <div className="flex items-center gap-2">
-      {label && <span className="text-xs text-gray-500 flex-1">{label}</span>}
+      {label && <span className="text-xs text-gray-700 flex-1">{label}</span>}
       <button
         type="button"
         onClick={() => onChange(Math.max(min, value - 1))}
@@ -319,7 +319,7 @@ function ScaleButtons({
 }) {
   return (
     <div>
-      {label && <span className="text-xs text-gray-500 block mb-1">{label}</span>}
+      {label && <span className="text-xs text-gray-700 block mb-1">{label}</span>}
       <div className="flex gap-1">
         {Array.from({ length: max }, (_, i) => i + 1).map((n) => (
           <button
@@ -327,7 +327,7 @@ function ScaleButtons({
             type="button"
             onClick={() => onChange(n)}
             className={`flex-1 py-1.5 rounded text-[11px] font-bold transition-colors ${
-              value === n ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"
+              value === n ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"
             }`}
           >
             {n}
@@ -345,7 +345,7 @@ function YesNo({ value, onChange }: { value: string; onChange: (v: string) => vo
         type="button"
         onClick={() => onChange("Yes")}
         className={`px-3 py-1.5 rounded-full text-[11px] font-medium ${
-          value === "Yes" ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"
+          value === "Yes" ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"
         }`}
       >
         Yes
@@ -354,7 +354,7 @@ function YesNo({ value, onChange }: { value: string; onChange: (v: string) => vo
         type="button"
         onClick={() => onChange("No")}
         className={`px-3 py-1.5 rounded-full text-[11px] font-medium ${
-          value === "No" ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"
+          value === "No" ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"
         }`}
       >
         No
@@ -382,7 +382,7 @@ function Grid3x3({
           type="button"
           onClick={() => onChange(k)}
           className={`py-2 rounded text-[10px] font-medium transition-colors ${
-            value === k ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"
+            value === k ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"
           }`}
         >
           {labels[k] || k}
@@ -403,7 +403,7 @@ function GreenPositionGrid({ value, onChange }: { value: string; onChange: (v: s
               type="button"
               onClick={() => onChange(k)}
               className={`w-11 h-9 rounded text-[8px] font-medium transition-colors ${
-                value === k ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"
+                value === k ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"
               }`}
             >
               {GREEN_POS_LABELS[k] || k}
@@ -457,7 +457,7 @@ function SummaryBar({
 function Row({ label, value }: { label: string; value: ReactNode }) {
   return (
     <div className="flex justify-between">
-      <span className="text-gray-500">{label}</span>
+      <span className="text-gray-700">{label}</span>
       <span className="font-medium text-gray-800 text-right">{value}</span>
     </div>
   );
@@ -492,7 +492,7 @@ function BasicHoleFields({
                 ? "bg-amber-500 text-white"
                 : o === "N/A" && active
                   ? "bg-gray-300 text-gray-700"
-                  : "bg-gray-100 text-gray-600";
+                  : "bg-gray-100 text-gray-800";
             return (
               <button
                 key={o}
@@ -519,7 +519,7 @@ function BasicHoleFields({
                 type="button"
                 onClick={() => onUpdate("fairway_miss_dir", d.v)}
                 className={`px-3 py-1.5 rounded-full text-[11px] font-medium ${
-                  entry.fairway_miss_dir === d.v ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"
+                  entry.fairway_miss_dir === d.v ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"
                 }`}
               >
                 {d.l}
@@ -539,7 +539,7 @@ function BasicHoleFields({
                 type="button"
                 onClick={() => onUpdate("gir", v)}
                 className={`px-3 py-1.5 rounded-full text-[11px] font-medium ${
-                  entry.gir === v ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"
+                  entry.gir === v ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"
                 }`}
               >
                 {o}
@@ -689,14 +689,14 @@ function ShotCard({
                   <button
                     type="button"
                     onClick={() => onUpdate("pin_mode", "precise")}
-                    className={`px-2 py-0.5 rounded-full text-[10px] font-medium ${shot.pin_mode !== "general" ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"}`}
+                    className={`px-2 py-0.5 rounded-full text-[10px] font-medium ${shot.pin_mode !== "general" ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"}`}
                   >
                     Precise
                   </button>
                   <button
                     type="button"
                     onClick={() => onUpdate("pin_mode", "general")}
-                    className={`px-2 py-0.5 rounded-full text-[10px] font-medium ${shot.pin_mode === "general" ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"}`}
+                    className={`px-2 py-0.5 rounded-full text-[10px] font-medium ${shot.pin_mode === "general" ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"}`}
                   >
                     General
                   </button>
@@ -1444,7 +1444,7 @@ function NewRoundPage() {
           </button>
           <h1 className="text-xl font-bold text-green-800 flex-1">New Round</h1>
         </div>
-        <p className="text-sm text-gray-500 mb-3">Step 1: Select a course</p>
+        <p className="text-sm text-gray-700 mb-3">Step 1: Select a course</p>
         <input
           type="search"
           placeholder="Search courses..."
@@ -1453,7 +1453,7 @@ function NewRoundPage() {
           className="w-full px-4 py-2 mb-3 rounded-lg border border-gray-200 bg-white text-sm focus:outline-none focus:border-green-600"
         />
         {loading ? (
-          <div className="text-center py-10 text-gray-400 text-sm">Loading courses...</div>
+          <div className="text-center py-10 text-gray-800 text-sm">Loading courses...</div>
         ) : (
           <div className="space-y-2">
             {filteredCourses.map((course) => (
@@ -1465,7 +1465,7 @@ function NewRoundPage() {
                 <div className="flex items-start justify-between">
                   <div>
                     <h3 className="font-semibold text-gray-900">{course.name}</h3>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-gray-700">
                       {course.city}
                       {course.state ? `, ${course.state}` : ""}
                     </p>
@@ -1477,7 +1477,7 @@ function NewRoundPage() {
               </button>
             ))}
             {filteredCourses.length === 0 && (
-              <div className="text-center py-10 text-gray-400 text-sm">No courses found</div>
+              <div className="text-center py-10 text-gray-800 text-sm">No courses found</div>
             )}
           </div>
         )}
@@ -1495,7 +1495,7 @@ function NewRoundPage() {
           </button>
           <h1 className="text-xl font-bold text-green-800 flex-1">Select Tee</h1>
         </div>
-        <p className="text-sm text-gray-500 mb-3">{selectedCourse?.name}</p>
+        <p className="text-sm text-gray-700 mb-3">{selectedCourse?.name}</p>
         <div className="space-y-2">
           {teeSets.map((tee) => {
             const color = getTeeColor(tee.color || tee.name);
@@ -1515,17 +1515,17 @@ function NewRoundPage() {
                 />
                 <div className="flex-1 text-left">
                   <p className="font-semibold text-gray-900">{tee.name || tee.color}</p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-700">
                     {(tee.total_yardage || 0).toLocaleString()} yds · Par {tee.total_par} · {tee.rating}/{tee.slope}
                   </p>
                 </div>
-                <span className="text-gray-400">›</span>
+                <span className="text-gray-800">›</span>
               </button>
             );
           })}
           <button
             onClick={() => setStep(3)}
-            className="w-full bg-gray-100 rounded-xl p-4 text-sm font-medium text-gray-600 active:scale-[0.98] transition-transform"
+            className="w-full bg-gray-100 rounded-xl p-4 text-sm font-medium text-gray-800 active:scale-[0.98] transition-transform"
           >
             Skip — No tee set
           </button>
@@ -1547,7 +1547,7 @@ function NewRoundPage() {
           </button>
           <h1 className="text-xl font-bold text-green-800 flex-1">Round Settings</h1>
         </div>
-        <p className="text-sm text-gray-500 mb-3">
+        <p className="text-sm text-gray-700 mb-3">
           {selectedCourse?.name}
           {selectedTee && ` · ${selectedTee.name || selectedTee.color} tees`}
         </p>
@@ -1569,7 +1569,7 @@ function NewRoundPage() {
               <span className="text-2xl">{m.emoji}</span>
               <div className="flex-1">
                 <p className="font-bold text-sm">{m.label}</p>
-                <p className={`text-xs ${trackingMode === m.key ? "text-amber-200" : "text-gray-500"}`}>
+                <p className={`text-xs ${trackingMode === m.key ? "text-amber-200" : "text-gray-700"}`}>
                   {m.desc}
                 </p>
               </div>
@@ -1586,7 +1586,7 @@ function NewRoundPage() {
               type="button"
               onClick={() => setRoundType(rt.key as any)}
               className={`flex-1 py-2 rounded-lg text-xs font-medium ${
-                roundType === rt.key ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"
+                roundType === rt.key ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"
               }`}
             >
               {rt.label}
@@ -1614,7 +1614,7 @@ function NewRoundPage() {
               type="button"
               onClick={() => setWeather(weather === w ? "" : w)}
               className={`px-3 py-1.5 rounded-full text-[11px] font-medium ${
-                weather === w ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"
+                weather === w ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"
               }`}
             >
               {w}
@@ -1631,7 +1631,7 @@ function NewRoundPage() {
               type="button"
               onClick={() => setWind(wind === w ? "" : w)}
               className={`px-3 py-1.5 rounded-full text-[11px] font-medium ${
-                wind === w ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"
+                wind === w ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"
               }`}
             >
               {w}
@@ -1648,7 +1648,7 @@ function NewRoundPage() {
               type="button"
               onClick={() => setVisibility(v)}
               className={`flex-1 py-2 rounded-lg text-xs font-medium capitalize ${
-                visibility === v ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"
+                visibility === v ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"
               }`}
             >
               {v}
@@ -1668,7 +1668,7 @@ function NewRoundPage() {
                     type="button"
                     onClick={() => setGrassType(grassType === g ? "" : g)}
                     className={`px-2.5 py-1.5 rounded-full text-[11px] font-medium ${
-                      grassType === g ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"
+                      grassType === g ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"
                     }`}
                   >
                     {g}
@@ -1696,7 +1696,7 @@ function NewRoundPage() {
                     type="button"
                     onClick={() => setRoughThickness(roughThickness === r ? "" : r)}
                     className={`px-2.5 py-1.5 rounded-full text-[11px] font-medium ${
-                      roughThickness === r ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-600"
+                      roughThickness === r ? "bg-green-700 text-amber-400" : "bg-gray-100 text-gray-800"
                     }`}
                   >
                     {r}
@@ -1712,7 +1712,7 @@ function NewRoundPage() {
           <div className="flex items-center justify-between bg-white rounded-xl p-3 border border-gray-100 mb-4">
             <div>
               <p className="text-sm font-semibold text-gray-800">Track Wedge & In</p>
-              <p className="text-xs text-gray-500">Count wedge & in strokes per hole</p>
+              <p className="text-xs text-gray-700">Count wedge & in strokes per hole</p>
             </div>
             <button
               type="button"
@@ -1754,7 +1754,7 @@ function NewRoundPage() {
             Review →
           </button>
         </div>
-        <p className="text-sm text-gray-500 mb-2">
+        <p className="text-sm text-gray-700 mb-2">
           {selectedCourse?.name}
           {selectedTee && ` · ${selectedTee.name || selectedTee.color} tees`}
         </p>
@@ -1772,7 +1772,7 @@ function NewRoundPage() {
               className="w-full px-3 py-3 rounded-lg border border-gray-200 text-2xl font-bold text-center text-green-800 focus:outline-none focus:border-green-600"
               placeholder="Enter total"
             />
-            <p className="text-xs text-gray-400">No per-hole data will be saved.</p>
+            <p className="text-xs text-gray-800">No per-hole data will be saved.</p>
             <button
               type="button"
               onClick={() => setStep(5)}
@@ -1795,7 +1795,7 @@ function NewRoundPage() {
                       ? "bg-green-700 text-amber-400"
                       : e.score > 0
                         ? "bg-white text-green-700 border-2 border-amber-400"
-                        : "bg-gray-100 text-gray-400"
+                        : "bg-gray-100 text-gray-800"
                   }`}
                 >
                   {i + 1}
@@ -1810,7 +1810,7 @@ function NewRoundPage() {
                 <div className="space-y-3">
                   <div className="flex items-baseline gap-2">
                     <h2 className="text-lg font-bold text-green-800">Hole {currentHole + 1}</h2>
-                    <span className="text-xs text-gray-500">
+                    <span className="text-xs text-gray-700">
                       Par {getPar(currentHole)}
                       {getYardage(currentHole) ? ` · ${getYardage(currentHole)} yds` : ""}
                     </span>
@@ -1819,7 +1819,7 @@ function NewRoundPage() {
                   {/* Yardage override for par 3s */}
                   {getPar(currentHole) === 3 && (
                     <div className="flex items-center gap-2 bg-blue-50 rounded-lg px-3 py-2 border border-blue-100">
-                      <span className="text-xs text-gray-500">Actual yardage:</span>
+                      <span className="text-xs text-gray-700">Actual yardage:</span>
                       <input
                         type="number"
                         inputMode="numeric"
@@ -1831,7 +1831,7 @@ function NewRoundPage() {
                         className="w-20 px-2 py-1 rounded border border-gray-200 text-sm text-center font-bold text-green-800 focus:outline-none focus:border-green-600"
                         placeholder={getYardage(currentHole)?.toString() || ""}
                       />
-                      <span className="text-xs text-gray-400">yds (override)</span>
+                      <span className="text-xs text-gray-800">yds (override)</span>
                     </div>
                   )}
 
@@ -1864,7 +1864,7 @@ function NewRoundPage() {
                         Shots ({entry.shots.length})
                       </span>
                       {entry.shots.length === 0 && (
-                        <p className="text-xs text-gray-400">Set a score above to add shots.</p>
+                        <p className="text-xs text-gray-800">Set a score above to add shots.</p>
                       )}
                       {entry.shots.map((shot, si) => {
                         const penaltiesBefore = entry.shots
@@ -1978,7 +1978,7 @@ function NewRoundPage() {
           <div className="grid grid-cols-6 gap-1 text-center text-xs">
             {holeEntries.map((e, i) => (
               <div key={i} className="py-1">
-                <div className="text-gray-400 text-[10px]">H{i + 1}</div>
+                <div className="text-gray-800 text-[10px]">H{i + 1}</div>
                 <div className="font-bold text-green-800">{e.score || "—"}</div>
               </div>
             ))}

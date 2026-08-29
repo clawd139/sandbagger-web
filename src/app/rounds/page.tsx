@@ -11,6 +11,7 @@ import {
   calcRoundStats,
   detectTournaments,
   totalScoreColor,
+  calcAdvancedRoundStats,
 } from "@/lib/constants";
 import type { Round, Course, HoleScore } from "@/lib/constants";
 import ScoreBadge from "@/components/ScoreBadge";
@@ -92,12 +93,12 @@ export default function RoundsPage() {
       </div>
 
       {loading ? (
-        <div className="text-center py-20 text-gray-400 text-sm">Loading rounds...</div>
+        <div className="text-center py-20 text-gray-800 text-sm">Loading rounds...</div>
       ) : rounds.length === 0 ? (
         <div className="text-center py-20">
           <p className="text-4xl mb-3">⛳</p>
           <p className="text-lg font-bold text-green-800">No rounds yet</p>
-          <p className="text-sm text-gray-400 mt-1">Log your first round to get started!</p>
+          <p className="text-sm text-gray-800 mt-1">Log your first round to get started!</p>
           <Link
             href="/rounds/new"
             className="mt-4 inline-block text-sm px-4 py-2 rounded-full bg-green-700 text-white font-semibold"
@@ -131,7 +132,7 @@ export default function RoundsPage() {
                       <p className="font-semibold text-gray-900">
                         {round.sb_courses?.name || "Unknown Course"}
                       </p>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-gray-700">
                         {formatDate(round.date_played)}
                         {isTournament && <span className="ml-1 text-sm">🏆</span>}
                         {notes.round_type === "practice" && !isTournament && (
@@ -147,37 +148,37 @@ export default function RoundsPage() {
                   {/* Stats row */}
                   <div className="flex gap-3 mt-2 text-xs">
                     {stats.fwPct != null && (
-                      <span className="text-gray-600">
+                      <span className="text-gray-800">
                         FW <span className="font-semibold text-green-700">{stats.fwPct}%</span>
                       </span>
                     )}
                     {stats.girPct != null && (
-                      <span className="text-gray-600">
+                      <span className="text-gray-800">
                         GIR <span className="font-semibold text-green-700">{stats.girPct}%</span>
                       </span>
                     )}
-                    {stats.avgPutts != null && (
-                      <span className="text-gray-600">
-                        Putts <span className="font-semibold text-green-700">{stats.avgPutts.toFixed(1)}</span>
+                    {stats.totalPutts != null && stats.totalPutts > 0 && (
+                      <span className="text-gray-800">
+                        Putts <span className="font-semibold text-green-700">{stats.totalPutts}</span>
                       </span>
                     )}
                     {stats.birdies > 0 && (
-                      <span className="text-gray-600">
+                      <span className="text-gray-800">
                         🐦 <span className="font-semibold text-amber-500">{stats.birdies}</span>
                       </span>
                     )}
                     {stats.eagles > 0 && (
-                      <span className="text-gray-600">
+                      <span className="text-gray-800">
                         🦅 <span className="font-semibold text-amber-500">{stats.eagles}</span>
                       </span>
                     )}
                   </div>
 
                   {round.weather && (
-                    <p className="text-xs text-gray-400 mt-1">🌤 {round.weather}</p>
+                    <p className="text-xs text-gray-800 mt-1">🌤 {round.weather}</p>
                   )}
                   {notes.caption && (
-                    <p className="text-xs text-gray-600 mt-1 italic">"{notes.caption}"</p>
+                    <p className="text-xs text-gray-800 mt-1 italic">"{notes.caption}"</p>
                   )}
                 </button>
 
@@ -191,9 +192,9 @@ export default function RoundsPage() {
                           key={idx}
                           className="flex flex-col items-center min-w-[28px]"
                         >
-                          <span className="text-[8px] text-gray-400">{hole.hole_number}</span>
+                          <span className="text-[8px] text-gray-800">{hole.hole_number}</span>
                           <ScoreBadge score={hole.score} par={hole.par || 0} size="sm" />
-                          <span className="text-[8px] text-gray-500 mt-0.5">
+                          <span className="text-[8px] text-gray-700 mt-0.5">
                             {hole.putts || "—"}
                           </span>
                         </div>
@@ -246,6 +247,36 @@ export default function RoundsPage() {
                         </tbody>
                       </table>
                     </div>
+
+                    {/* Advanced round stats */}
+                    {(() => {
+                      const adv = calcAdvancedRoundStats(scores);
+                      if (!adv.hasData) return null;
+                      return (
+                        <div className="mt-3 grid grid-cols-3 gap-2">
+                          <div className="bg-gray-50 rounded-lg p-2 text-center">
+                            <p className="text-base font-bold text-green-700">
+                              {adv.feetOfPuttsMade > 0 ? adv.feetOfPuttsMade.toFixed(0) : "—"}
+                            </p>
+                            <p className="text-[9px] text-gray-700 leading-tight">Ft of Putts Made</p>
+                          </div>
+                          <div className="bg-gray-50 rounded-lg p-2 text-center">
+                            <p className="text-base font-bold text-green-700">
+                              {adv.avgApproachProx != null ? adv.avgApproachProx.toFixed(1) : "—"}
+                            </p>
+                            <p className="text-[9px] text-gray-700 leading-tight">Avg App Prox (ft)</p>
+                          </div>
+                          <div className="bg-gray-50 rounded-lg p-2 text-center">
+                            <p className="text-base font-bold text-green-700">
+                              {adv.upAndDownAttempts > 0
+                                ? `${adv.upAndDownMade}/${adv.upAndDownAttempts}`
+                                : "—"}
+                            </p>
+                            <p className="text-[9px] text-gray-700 leading-tight">Up & Downs</p>
+                          </div>
+                        </div>
+                      );
+                    })()}
 
                     {/* Action buttons */}
                     <div className="flex gap-2 mt-3">

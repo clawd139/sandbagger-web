@@ -195,13 +195,13 @@ export default function PinScanner({ onApply, onClose }: PinScannerProps) {
       <div className="bg-white rounded-t-2xl sm:rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-white border-b px-4 py-3 flex items-center justify-between z-10">
           <h2 className="text-sm font-bold text-green-800">Scan Pin Sheet</h2>
-          <button onClick={onClose} className="text-gray-400 text-xl leading-none">&times;</button>
+          <button onClick={onClose} className="text-gray-800 text-xl leading-none">&times;</button>
         </div>
 
         <div className="p-4 space-y-4">
           {!image && !processing && (
             <div>
-              <p className="text-xs text-gray-500 mb-3">
+              <p className="text-xs text-gray-700 mb-3">
                 Take a photo of the course pin sheet. The app will try to read all 18 pin positions automatically.
               </p>
               <input
@@ -227,7 +227,7 @@ export default function PinScanner({ onApply, onClose }: PinScannerProps) {
           {processing && (
             <div className="text-center py-8">
               <div className="inline-block w-8 h-8 border-2 border-green-700 border-t-transparent rounded-full animate-spin mb-3" />
-              <p className="text-xs text-gray-500">Reading pin sheet...</p>
+              <p className="text-xs text-gray-700">Reading pin sheet...</p>
             </div>
           )}
 
@@ -252,7 +252,7 @@ export default function PinScanner({ onApply, onClose }: PinScannerProps) {
           {image && !processing && pins && (
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-gray-700">
                   {pins.length} pin{pins.length !== 1 ? "s" : ""} found. Review and edit before applying.
                 </p>
                 <button

@@ -8,7 +8,7 @@ export default function ScoreBadge({
   par: number;
   size?: "sm" | "md" | "lg";
 }) {
-  if (!score || !par) return <span className="text-gray-400">—</span>;
+  if (!score || !par) return <span className="text-gray-800">—</span>;
 
   const diff = score - par;
   const color =

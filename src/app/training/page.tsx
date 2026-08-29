@@ -196,7 +196,7 @@ export default function TrainingPage() {
             className="w-full bg-white rounded-xl p-5 text-left shadow-sm border border-gray-100 active:scale-[0.98] transition-transform"
           >
             <p className="text-lg font-bold text-green-700">🎯 Practice Drills</p>
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-gray-700 mt-1">
               Log practice sessions with drills, track metrics over time
             </p>
           </button>
@@ -228,9 +228,9 @@ export default function TrainingPage() {
                     <span className="font-semibold text-gray-900">
                       {(r as any).sb_drills?.name || "Drill"}
                     </span>
-                    <span className="text-gray-400 ml-2">{formatDate(r.date_played)}</span>
+                    <span className="text-gray-800 ml-2">{formatDate(r.date_played)}</span>
                   </div>
-                  <span className="text-gray-500">
+                  <span className="text-gray-700">
                     {r.practice_type === "on_course" ? "⛳" : "🎯"}
                     {r.duration_minutes ? ` ${r.duration_minutes}m` : ""}
                   </span>
@@ -306,7 +306,7 @@ export default function TrainingPage() {
                     className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
                       onCourseCategory === c.key
                         ? "bg-green-700 text-amber-400"
-                        : "bg-gray-100 text-gray-600"
+                        : "bg-gray-100 text-gray-800"
                     }`}
                   >
                     {c.emoji} {c.label}
@@ -320,7 +320,7 @@ export default function TrainingPage() {
               <h2 className="text-sm font-bold text-gray-700">4. Choose a Drill</h2>
               {onCourseDrills.length === 0 ? (
                 <div className="bg-white rounded-xl p-4 text-center border border-gray-100">
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-800">
                     No on-course drills in this category yet.
                   </p>
                   <button
@@ -344,7 +344,7 @@ export default function TrainingPage() {
                   >
                     <p className="font-semibold text-gray-900 text-sm">{drill.name}</p>
                     {drill.description && (
-                      <p className="text-xs text-gray-500 mt-1">{drill.description}</p>
+                      <p className="text-xs text-gray-700 mt-1">{drill.description}</p>
                     )}
                   </button>
                 ))
@@ -381,7 +381,7 @@ export default function TrainingPage() {
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
                 practiceCategory === c.key
                   ? "bg-green-700 text-amber-400"
-                  : "bg-gray-100 text-gray-600"
+                  : "bg-gray-100 text-gray-800"
               }`}
             >
               {c.emoji} {c.label}
@@ -393,7 +393,7 @@ export default function TrainingPage() {
         <div className="space-y-2">
           {practiceDrills.length === 0 ? (
             <div className="bg-white rounded-xl p-4 text-center border border-gray-100">
-              <p className="text-sm text-gray-400">No practice drills in this category yet.</p>
+              <p className="text-sm text-gray-800">No practice drills in this category yet.</p>
               <button
                 onClick={() => setView("add_drill")}
                 className="text-xs text-green-700 font-medium mt-2"
@@ -417,7 +417,7 @@ export default function TrainingPage() {
               >
                 <p className="font-semibold text-gray-900 text-sm">{drill.name}</p>
                 {drill.description && (
-                  <p className="text-xs text-gray-500 mt-1">{drill.description}</p>
+                  <p className="text-xs text-gray-700 mt-1">{drill.description}</p>
                 )}
                 {drill.metric_type && (
                   <span className="inline-block mt-2 px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-[10px] font-medium">
@@ -552,7 +552,7 @@ export default function TrainingPage() {
             {logEntries.map((entry, idx) => (
               <div key={idx} className="bg-white rounded-xl p-3 shadow-sm border border-gray-100 space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-gray-500">Attempt {idx + 1}</span>
+                  <span className="text-xs font-bold text-gray-700">Attempt {idx + 1}</span>
                   <button onClick={() => removeEntry(idx)} className="text-xs text-red-500 font-medium">
                     Remove
                   </button>
@@ -574,7 +574,7 @@ export default function TrainingPage() {
                     className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
                       entry.success === true
                         ? "bg-green-700 text-amber-400"
-                        : "bg-gray-100 text-gray-600"
+                        : "bg-gray-100 text-gray-800"
                     }`}
                   >
                     ✓ Success
@@ -584,7 +584,7 @@ export default function TrainingPage() {
                     className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
                       entry.success === false
                         ? "bg-red-100 text-red-700"
-                        : "bg-gray-100 text-gray-600"
+                        : "bg-gray-100 text-gray-800"
                     }`}
                   >
                     ✗ Failed
@@ -593,7 +593,7 @@ export default function TrainingPage() {
 
                 {/* Target hit */}
                 <div>
-                  <label className="text-xs text-gray-500 block mb-1">Target</label>
+                  <label className="text-xs text-gray-700 block mb-1">Target</label>
                   <div className="flex gap-1.5">
                     {TARGET_HITS.map((t) => (
                       <button
@@ -602,7 +602,7 @@ export default function TrainingPage() {
                         className={`px-2 py-1 rounded-md text-[10px] font-medium ${
                           entry.target_hit === t
                             ? "bg-green-700 text-amber-400"
-                            : "bg-gray-100 text-gray-600"
+                            : "bg-gray-100 text-gray-800"
                         }`}
                       >
                         {t.replace(/_/g, " ")}
@@ -614,7 +614,7 @@ export default function TrainingPage() {
                 {/* Miss direction */}
                 {!entry.success && (
                   <div>
-                    <label className="text-xs text-gray-500 block mb-1">Where did you miss?</label>
+                    <label className="text-xs text-gray-700 block mb-1">Where did you miss?</label>
                     <div className="flex flex-wrap gap-1.5">
                       {MISS_DIRECTIONS.map((d) => (
                         <button
@@ -623,7 +623,7 @@ export default function TrainingPage() {
                           className={`px-2 py-1 rounded-md text-[10px] font-medium ${
                             entry.miss_detail === d
                               ? "bg-red-100 text-red-700"
-                              : "bg-gray-100 text-gray-600"
+                              : "bg-gray-100 text-gray-800"
                           }`}
                         >
                           {d}
@@ -655,7 +655,7 @@ export default function TrainingPage() {
 
             {logEntries.length === 0 && (
               <div className="bg-white rounded-xl p-4 text-center border border-gray-100">
-                <p className="text-sm text-gray-400">Tap "Add Attempt" to log each shot</p>
+                <p className="text-sm text-gray-800">Tap "Add Attempt" to log each shot</p>
               </div>
             )}
           </div>
@@ -839,7 +839,7 @@ export default function TrainingPage() {
                 className={`flex-1 py-2 rounded-lg text-sm font-medium ${
                   newDrill.practice_type === "practice"
                     ? "bg-green-700 text-amber-400"
-                    : "bg-gray-100 text-gray-600"
+                    : "bg-gray-100 text-gray-800"
                 }`}
               >
                 🎯 Practice
@@ -849,7 +849,7 @@ export default function TrainingPage() {
                 className={`flex-1 py-2 rounded-lg text-sm font-medium ${
                   newDrill.practice_type === "on_course"
                     ? "bg-green-700 text-amber-400"
-                    : "bg-gray-100 text-gray-600"
+                    : "bg-gray-100 text-gray-800"
                 }`}
               >
                 ⛳ On Course
@@ -868,7 +868,7 @@ export default function TrainingPage() {
                   className={`px-3 py-1.5 rounded-full text-xs font-medium ${
                     newDrill.category === c.key
                       ? "bg-green-700 text-amber-400"
-                      : "bg-gray-100 text-gray-600"
+                      : "bg-gray-100 text-gray-800"
                   }`}
                 >
                   {c.emoji} {c.label}
@@ -901,7 +901,7 @@ export default function TrainingPage() {
                 <option key={String(m.value)} value={m.value || ""}>{m.label}</option>
               ))}
             </select>
-            <p className="text-xs text-gray-400 mt-1">
+            <p className="text-xs text-gray-800 mt-1">
               How you'll evaluate this drill. Track progress over time.
             </p>
           </div>
@@ -948,7 +948,7 @@ export default function TrainingPage() {
           <div className="bg-white rounded-xl p-8 text-center border border-gray-100">
             <p className="text-4xl mb-2">📋</p>
             <p className="text-sm font-semibold text-gray-700">No drill history yet</p>
-            <p className="text-xs text-gray-400 mt-1">Log a drill to start tracking progress</p>
+            <p className="text-xs text-gray-800 mt-1">Log a drill to start tracking progress</p>
           </div>
         ) : (
           <div className="space-y-3">
@@ -960,14 +960,14 @@ export default function TrainingPage() {
                   <div className="flex items-start justify-between mb-2">
                     <div>
                       <p className="font-semibold text-gray-900 text-sm">{drillName}</p>
-                      <p className="text-xs text-gray-400">{formatDate(r.date_played)}</p>
+                      <p className="text-xs text-gray-800">{formatDate(r.date_played)}</p>
                     </div>
                     <span className="text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-700">
                       {r.practice_type === "on_course" ? "⛳" : "🎯"} {cat?.label || r.category}
                     </span>
                   </div>
 
-                  <div className="flex gap-4 text-xs text-gray-500">
+                  <div className="flex gap-4 text-xs text-gray-700">
                     {r.duration_minutes != null && (
                       <span>⏱ {r.duration_minutes} min</span>
                     )}
@@ -984,7 +984,7 @@ export default function TrainingPage() {
                   </div>
 
                   {r.notes && (
-                    <p className="text-xs text-gray-500 italic mt-2">"{r.notes}"</p>
+                    <p className="text-xs text-gray-700 italic mt-2">"{r.notes}"</p>
                   )}
                 </div>
               );

@@ -41,7 +41,7 @@ export default function CoursesPage() {
         className="w-full px-4 py-2 mb-3 rounded-lg border border-gray-200 bg-white text-sm focus:outline-none focus:border-green-600"
       />
       {loading ? (
-        <div className="text-center py-10 text-gray-400 text-sm">Loading courses...</div>
+        <div className="text-center py-10 text-gray-800 text-sm">Loading courses...</div>
       ) : (
         <div className="space-y-2">
           {filtered.map((course) => (
@@ -53,7 +53,7 @@ export default function CoursesPage() {
               <div className="flex items-start justify-between">
                 <div>
                   <h2 className="font-semibold text-gray-900">{course.name}</h2>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-gray-700">
                     {course.city}
                     {course.state ? `, ${course.state}` : ""}
                   </p>
@@ -65,7 +65,7 @@ export default function CoursesPage() {
             </Link>
           ))}
           {filtered.length === 0 && (
-            <div className="text-center py-10 text-gray-400 text-sm">No courses found</div>
+            <div className="text-center py-10 text-gray-800 text-sm">No courses found</div>
           )}
         </div>
       )}
