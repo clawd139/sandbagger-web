@@ -4,13 +4,15 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import type { Course } from "@/lib/constants";
+import AddCourseModal from "@/components/AddCourseModal";
 
 export default function CoursesPage() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [showAddCourse, setShowAddCourse] = useState(false);
 
-  useEffect(() => {
+  const loadCourses = () => {
     supabase
       .from("sb_courses")
       .select("*")
@@ -19,6 +21,10 @@ export default function CoursesPage() {
         setCourses(data || []);
         setLoading(false);
       });
+  };
+
+  useEffect(() => {
+    loadCourses();
   }, []);
 
   const filtered = courses.filter((c) => {
@@ -67,7 +73,24 @@ export default function CoursesPage() {
           {filtered.length === 0 && (
             <div className="text-center py-10 text-gray-800 text-sm">No courses found</div>
           )}
+          {/* Course not here? Add one */}
+          <button
+            type="button"
+            onClick={() => setShowAddCourse(true)}
+            className="w-full py-3 rounded-xl border-2 border-dashed border-green-300 text-green-700 font-semibold text-sm active:scale-[0.98] transition-transform"
+          >
+            + Course not here? Add one
+          </button>
         </div>
+      )}
+      {showAddCourse && (
+        <AddCourseModal
+          onClose={() => setShowAddCourse(false)}
+          onCreated={(course) => {
+            setShowAddCourse(false);
+            loadCourses();
+          }}
+        />
       )}
     </div>
   );

@@ -12,6 +12,7 @@ import {
 } from "@/lib/constants";
 import type { Course, Hole, TeeSet, TeeHole } from "@/lib/constants";
 import PinScanner, { type PinData } from "@/components/PinScanner";
+import AddCourseModal from "@/components/AddCourseModal";
 
 // Wrapper with Suspense for useSearchParams (Next.js 16 requirement)
 export default function Page() {
@@ -1013,6 +1014,7 @@ function NewRoundPage() {
   const [roughThickness, setRoughThickness] = useState("");
   const [scannedPins, setScannedPins] = useState<PinData[]>([]);
   const [showPinScanner, setShowPinScanner] = useState(false);
+  const [showAddCourse, setShowAddCourse] = useState(false);
 
   // Skip mode total
   const [totalScoreSkip, setTotalScoreSkip] = useState(0);
@@ -1479,7 +1481,25 @@ function NewRoundPage() {
             {filteredCourses.length === 0 && (
               <div className="text-center py-10 text-gray-800 text-sm">No courses found</div>
             )}
+            {/* Course not here? Add one */}
+            <button
+              type="button"
+              onClick={() => setShowAddCourse(true)}
+              className="w-full py-3 rounded-xl border-2 border-dashed border-green-300 text-green-700 font-semibold text-sm active:scale-[0.98] transition-transform"
+            >
+              + Course not here? Add one
+            </button>
           </div>
+        )}
+        {showAddCourse && (
+          <AddCourseModal
+            onClose={() => setShowAddCourse(false)}
+            onCreated={async (course) => {
+              setShowAddCourse(false);
+              setCourses((prev) => [...prev, course].sort((a, b) => a.name.localeCompare(b.name)));
+              await selectCourse(course);
+            }}
+          />
         )}
       </div>
     );
