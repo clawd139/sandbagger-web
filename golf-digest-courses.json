@@ -1,0 +1,2134 @@
+{
+  "public_100": [
+    {
+      "name": "Pebble Beach Golf Links",
+      "city": "Pebble Beach",
+      "state": "CA",
+      "rank": 1
+    },
+    {
+      "name": "Pacific Dunes",
+      "city": "Bandon",
+      "state": "OR",
+      "rank": 2
+    },
+    {
+      "name": "Shadow Creek",
+      "city": "North Las Vegas",
+      "state": "NV",
+      "rank": 3
+    },
+    {
+      "name": "Whistling Straits: Straits Course",
+      "city": "Sheboygan",
+      "state": "WI",
+      "rank": 4
+    },
+    {
+      "name": "Kiawah Island Golf Resort: The Ocean Course",
+      "city": "Kiawah Island",
+      "state": "SC",
+      "rank": 5
+    },
+    {
+      "name": "Pinehurst No. 2",
+      "city": "Pinehurst",
+      "state": "NC",
+      "rank": 6
+    },
+    {
+      "name": "Bethpage State Park: Black",
+      "city": "Farmingdale",
+      "state": "NY",
+      "rank": 7
+    },
+    {
+      "name": "TPC Sawgrass: Stadium",
+      "city": "Ponte Vedra Beach",
+      "state": "FL",
+      "rank": 8
+    },
+    {
+      "name": "Bandon Dunes",
+      "city": "Bandon",
+      "state": "OR",
+      "rank": 9
+    },
+    {
+      "name": "Erin Hills Golf Course",
+      "city": "Hartford",
+      "state": "WI",
+      "rank": 10
+    },
+    {
+      "name": "Bandon Trails",
+      "city": "Bandon",
+      "state": "OR",
+      "rank": 11
+    },
+    {
+      "name": "Sand Valley: The Lido",
+      "city": "Nekoosa",
+      "state": "WI",
+      "rank": 12
+    },
+    {
+      "name": "Spyglass Hill Golf Course",
+      "city": "Pebble Beach",
+      "state": "CA",
+      "rank": 13
+    },
+    {
+      "name": "Old Macdonald",
+      "city": "Bandon",
+      "state": "OR",
+      "rank": 14
+    },
+    {
+      "name": "Pasatiempo Golf Club",
+      "city": "Santa Cruz",
+      "state": "CA",
+      "rank": 15
+    },
+    {
+      "name": "Arcadia Bluffs Golf Club (Bluffs)",
+      "city": "Arcadia",
+      "state": "MI",
+      "rank": 16
+    },
+    {
+      "name": "Blackwolf Run: River",
+      "city": "Kohler",
+      "state": "WI",
+      "rank": 17
+    },
+    {
+      "name": "French Lick Resort: Pete Dye Course",
+      "city": "French Lick",
+      "state": "IN",
+      "rank": 18
+    },
+    {
+      "name": "Chambers Bay",
+      "city": "University Place",
+      "state": "WA",
+      "rank": 19
+    },
+    {
+      "name": "Streamsong Resort: Red",
+      "city": "Bowling Green",
+      "state": "FL",
+      "rank": 20
+    },
+    {
+      "name": "Sand Valley Golf Resort: Sand Valley",
+      "city": "Nekoosa",
+      "state": "WI",
+      "rank": 21
+    },
+    {
+      "name": "Manele Golf Course",
+      "city": "Lanai City",
+      "state": "HI",
+      "rank": 22
+    },
+    {
+      "name": "Kapalua: Plantation",
+      "city": "Lahaina",
+      "state": "HI",
+      "rank": 23
+    },
+    {
+      "name": "Landmand",
+      "city": "Homer",
+      "state": "NE",
+      "rank": 24
+    },
+    {
+      "name": "Sand Valley Golf Resort: Mammoth Dunes",
+      "city": "Nekoosa",
+      "state": "WI",
+      "rank": 25
+    },
+    {
+      "name": "Streamsong Resort: Blue",
+      "city": "Bowling Green",
+      "state": "FL",
+      "rank": 26
+    },
+    {
+      "name": "Bandon Dunes Golf Resort: Sheep Ranch",
+      "city": "Bandon",
+      "state": "OR",
+      "rank": 27
+    },
+    {
+      "name": "Harbour Town Golf Links",
+      "city": "Hilton Head Island",
+      "state": "SC",
+      "rank": 28
+    },
+    {
+      "name": "The Highland Course At Primland",
+      "city": "Meadows of Dan",
+      "state": "VA",
+      "rank": 29
+    },
+    {
+      "name": "Pinehurst No. 10",
+      "city": "Pinehurst",
+      "state": "NC",
+      "rank": 30
+    },
+    {
+      "name": "Gamble Sands",
+      "city": "Brewster",
+      "state": "WA",
+      "rank": 31
+    },
+    {
+      "name": "Pinehurst No. 4",
+      "city": "Pinehurst",
+      "state": "NC",
+      "rank": 32
+    },
+    {
+      "name": "Streamsong Resort: Black",
+      "city": "Bowling Green",
+      "state": "FL",
+      "rank": 33
+    },
+    {
+      "name": "PGA Frisco: Fields Ranch East",
+      "city": "Frisco",
+      "state": "TX",
+      "rank": 34
+    },
+    {
+      "name": "Black Desert Resort",
+      "city": "Ivins",
+      "state": "UT",
+      "rank": 35
+    },
+    {
+      "name": "The Prairie Club (Dunes Course)",
+      "city": "Valentine",
+      "state": "NE",
+      "rank": 36
+    },
+    {
+      "name": "Forest Dunes Golf Club",
+      "city": "Roscommon",
+      "state": "MI",
+      "rank": 37
+    },
+    {
+      "name": "Yale Golf Course",
+      "city": "New Haven",
+      "state": "CT",
+      "rank": 38
+    },
+    {
+      "name": "The Greenbrier: Old White",
+      "city": "White Sulphur Springs",
+      "state": "WV",
+      "rank": 39
+    },
+    {
+      "name": "Torrey Pines Golf Course: South",
+      "city": "La Jolla",
+      "state": "CA",
+      "rank": 40
+    },
+    {
+      "name": "Pronghorn Club at Juniper Preserve",
+      "city": "Bend",
+      "state": "OR",
+      "rank": 41
+    },
+    {
+      "name": "The Omni Homestead Resort: Cascades Course",
+      "city": "Hot Springs",
+      "state": "VA",
+      "rank": 42
+    },
+    {
+      "name": "Mauna Kea Beach Hotel Golf Course",
+      "city": "Kamuela",
+      "state": "HI",
+      "rank": 43
+    },
+    {
+      "name": "Tobacco Road Golf Club",
+      "city": "Sanford",
+      "state": "NC",
+      "rank": 44
+    },
+    {
+      "name": "Sea Island: Seaside",
+      "city": "St. Simons Island",
+      "state": "GA",
+      "rank": 45
+    },
+    {
+      "name": "Big Cedar Lodge: Ozarks National",
+      "city": "Ridgedale",
+      "state": "MO",
+      "rank": 46
+    },
+    {
+      "name": "The Broadmoor Golf Club: East",
+      "city": "Colorado Springs",
+      "state": "CO",
+      "rank": 47
+    },
+    {
+      "name": "Fallen Oak",
+      "city": "Sautee Nacoochee",
+      "state": "MS",
+      "rank": 48
+    },
+    {
+      "name": "SentryWorld Golf Club",
+      "city": "Stevens Point",
+      "state": "WI",
+      "rank": 49
+    },
+    {
+      "name": "Cabot Citrus Farms: Karoo",
+      "city": "Beverly Hills",
+      "state": "FL",
+      "rank": 50
+    },
+    {
+      "name": "Sedge Valley at Sand Valley",
+      "city": "Nekoosa",
+      "state": "WI",
+      "rank": 51
+    },
+    {
+      "name": "CordeValle Golf Club",
+      "city": "San Martin",
+      "state": "CA",
+      "rank": 52
+    },
+    {
+      "name": "Arcadia Bluffs South Course",
+      "city": "Arcadia",
+      "state": "MI",
+      "rank": 53
+    },
+    {
+      "name": "The Links At Spanish Bay",
+      "city": "Pebble Beach",
+      "state": "CA",
+      "rank": 54
+    },
+    {
+      "name": "Greywalls at Marquette Golf Club",
+      "city": "Marquette",
+      "state": "MI",
+      "rank": 55
+    },
+    {
+      "name": "Paako Ridge Golf Club",
+      "city": "Sandia Park",
+      "state": "NM",
+      "rank": 56
+    },
+    {
+      "name": "Wilderness Club",
+      "city": "Eureka",
+      "state": "MT",
+      "rank": 57
+    },
+    {
+      "name": "The Quarry at Giants Ridge",
+      "city": "Biwabik",
+      "state": "MN",
+      "rank": 58
+    },
+    {
+      "name": "Wolf Creek Golf Club",
+      "city": "Mesquite",
+      "state": "NV",
+      "rank": 59
+    },
+    {
+      "name": "Pine Needles Lodge & Golf Club",
+      "city": "Southern Pines",
+      "state": "NC",
+      "rank": 60
+    },
+    {
+      "name": "Tetherow Golf Club",
+      "city": "Bend",
+      "state": "OR",
+      "rank": 61
+    },
+    {
+      "name": "PGA West: Stadium Course",
+      "city": "La Quinta",
+      "state": "CA",
+      "rank": 62
+    },
+    {
+      "name": "The Loop: Black",
+      "city": "Sheboygan",
+      "state": "WI",
+      "rank": 63
+    },
+    {
+      "name": "Nemacolin: Mystic Rock",
+      "city": "Farmington",
+      "state": "PA",
+      "rank": 64
+    },
+    {
+      "name": "Whistling Straits: Irish Course",
+      "city": "Sheboygan",
+      "state": "WI",
+      "rank": 65
+    },
+    {
+      "name": "The Golf Courses of Lawsonia: Links",
+      "city": "Green Lake",
+      "state": "WI",
+      "rank": 66
+    },
+    {
+      "name": "Wynn Golf Club",
+      "city": "Las Vegas",
+      "state": "NV",
+      "rank": 67
+    },
+    {
+      "name": "The Loop (Red)",
+      "city": "Sheboygan",
+      "state": "WI",
+      "rank": 68
+    },
+    {
+      "name": "Crosswater Golf Course",
+      "city": "Sunriver",
+      "state": "OR",
+      "rank": 69
+    },
+    {
+      "name": "Tullymore Golf Resort",
+      "city": "Stanwood",
+      "state": "MI",
+      "rank": 70
+    },
+    {
+      "name": "Red Sky Ranch & Golf Club Fazio Course",
+      "city": "Wolcott",
+      "state": "CO",
+      "rank": 71
+    },
+    {
+      "name": "The Wilderness At Fortune Bay",
+      "city": "Tower",
+      "state": "MN",
+      "rank": 72
+    },
+    {
+      "name": "Makai Golf Club",
+      "city": "Princeville",
+      "state": "HI",
+      "rank": 73
+    },
+    {
+      "name": "Cascata",
+      "city": "Boulder City",
+      "state": "NV",
+      "rank": 74
+    },
+    {
+      "name": "Golden Horseshoe Golf Club: Gold Course",
+      "city": "Williamsburg",
+      "state": "VA",
+      "rank": 75
+    },
+    {
+      "name": "Cog Hill Golf & Country Club: Dubsdread (Course #4)",
+      "city": "Lemont",
+      "state": "IL",
+      "rank": 76
+    },
+    {
+      "name": "Fields Ranch PGA of America Frisco: West Course",
+      "city": "Frisco",
+      "state": "TX",
+      "rank": 77
+    },
+    {
+      "name": "Taconic Golf Club",
+      "city": "Williamstown",
+      "state": "MA",
+      "rank": 78
+    },
+    {
+      "name": "The Dunes Golf & Beach Club",
+      "city": "Myrtle Beach",
+      "state": "SC",
+      "rank": 79
+    },
+    {
+      "name": "Madden's on Gull Lake: The Classic at Madden's",
+      "city": "Brainerd",
+      "state": "MN",
+      "rank": 80
+    },
+    {
+      "name": "Big Cedar Lodge: Payne's Valley",
+      "city": "Ridgedale",
+      "state": "MO",
+      "rank": 81
+    },
+    {
+      "name": "Mossy Oak Golf Club",
+      "city": "West Point",
+      "state": "MS",
+      "rank": 82
+    },
+    {
+      "name": "Edgewood Tahoe Golf Course",
+      "city": "Stateline",
+      "state": "NV",
+      "rank": 83
+    },
+    {
+      "name": "Wild Horse Golf Club",
+      "city": "Gothenburg",
+      "state": "NE",
+      "rank": 84
+    },
+    {
+      "name": "Black Mesa Golf Club",
+      "city": "Espanola",
+      "state": "NM",
+      "rank": 85
+    },
+    {
+      "name": "Trump National Doral: Blue Monster",
+      "city": "Miami",
+      "state": "FL",
+      "rank": 86
+    },
+    {
+      "name": "Red Sky Ranch & Golf Club Norman Course",
+      "city": "Wolcott",
+      "state": "CO",
+      "rank": 87
+    },
+    {
+      "name": "Mid Pines Inn & Golf Club",
+      "city": "Southern Pines",
+      "state": "NC",
+      "rank": 88
+    },
+    {
+      "name": "The Park at West Palm Beach",
+      "city": "West Palm Beach",
+      "state": "FL",
+      "rank": 89
+    },
+    {
+      "name": "The Prairie Club: Pines Course",
+      "city": "Valentine",
+      "state": "NE",
+      "rank": 90
+    },
+    {
+      "name": "Firestone Country Club: South",
+      "city": "Akron",
+      "state": "OH",
+      "rank": 91
+    },
+    {
+      "name": "Blackwolf Run: Meadow Valleys",
+      "city": "Kohler",
+      "state": "WI",
+      "rank": 92
+    },
+    {
+      "name": "Quintero Golf Club",
+      "city": "Peoria",
+      "state": "AZ",
+      "rank": 93
+    },
+    {
+      "name": "Big Cedar Lodge: Buffalo Ridge",
+      "city": "Ridgedale",
+      "state": "MO",
+      "rank": 94
+    },
+    {
+      "name": "TPC San Antonio (Oaks)",
+      "city": "San Antonio",
+      "state": "TX",
+      "rank": 95
+    },
+    {
+      "name": "Wine Valley Golf Club",
+      "city": "Walla Walla",
+      "state": "WA",
+      "rank": 96
+    },
+    {
+      "name": "The Pfau Course At Indiana University",
+      "city": "Bloomington",
+      "state": "IN",
+      "rank": 97
+    },
+    {
+      "name": "Southern Pines Golf Club",
+      "city": "Southern Pines",
+      "state": "NC",
+      "rank": 98
+    },
+    {
+      "name": "Reynolds Lake Oconee: Great Waters",
+      "city": "Eatonton",
+      "state": "GA",
+      "rank": 99
+    },
+    {
+      "name": "Bay Harbor Golf Club: Links/Quarry",
+      "city": "Bay Harbor",
+      "state": "MI",
+      "rank": 100
+    }
+  ],
+  "greatest_100": [
+    {
+      "rank": 1,
+      "name": "Pine Valley Golf Club",
+      "city": "Pine Valley",
+      "state": "NJ"
+    },
+    {
+      "rank": 2,
+      "name": "Augusta National Golf Club",
+      "city": "Augusta",
+      "state": "GA"
+    },
+    {
+      "rank": 3,
+      "name": "Cypress Point Club",
+      "city": "Pebble Beach",
+      "state": "CA"
+    },
+    {
+      "rank": 4,
+      "name": "Shinnecock Hills Golf Club",
+      "city": "Southampton",
+      "state": "NY"
+    },
+    {
+      "rank": 5,
+      "name": "Oakmont Country Club",
+      "city": "Oakmont",
+      "state": "PA"
+    },
+    {
+      "rank": 6,
+      "name": "Merion Golf Club: East",
+      "city": "Ardmore",
+      "state": "PA"
+    },
+    {
+      "rank": 7,
+      "name": "National Golf Links of America",
+      "city": "Southampton",
+      "state": "NY"
+    },
+    {
+      "rank": 8,
+      "name": "Sand Hills Golf Club",
+      "city": "Mullen",
+      "state": "NE"
+    },
+    {
+      "rank": 9,
+      "name": "Pebble Beach Golf Links",
+      "city": "Pebble Beach",
+      "state": "CA"
+    },
+    {
+      "rank": 10,
+      "name": "Fishers Island Club",
+      "city": "Fishers Island",
+      "state": "NY"
+    },
+    {
+      "rank": 11,
+      "name": "Chicago Golf Club",
+      "city": "Wheaton",
+      "state": "IL"
+    },
+    {
+      "rank": 12,
+      "name": "Seminole Golf Club",
+      "city": "Juno Beach",
+      "state": "FL"
+    },
+    {
+      "rank": 13,
+      "name": "Winged Foot Golf Club: West",
+      "city": "Mamaroneck",
+      "state": "NY"
+    },
+    {
+      "rank": 14,
+      "name": "Friar's Head Golf Club",
+      "city": "Riverhead",
+      "state": "NY"
+    },
+    {
+      "rank": 15,
+      "name": "Crystal Downs Country Club",
+      "city": "Frankfort",
+      "state": "MI"
+    },
+    {
+      "rank": 16,
+      "name": "Los Angeles Country Club: North",
+      "city": "Los Angeles",
+      "state": "CA"
+    },
+    {
+      "rank": 17,
+      "name": "The Country Club: The Main Course",
+      "city": "Brookline",
+      "state": "MA"
+    },
+    {
+      "rank": 18,
+      "name": "Riviera Country Club",
+      "city": "Pacific Palisades",
+      "state": "CA"
+    },
+    {
+      "rank": 19,
+      "name": "Muirfield Village Golf Club",
+      "city": "Dublin",
+      "state": "OH"
+    },
+    {
+      "rank": 20,
+      "name": "Oakland Hills Country Club: South Course",
+      "city": "Bloomfield Hills",
+      "state": "MI"
+    },
+    {
+      "rank": 21,
+      "name": "Oak Hill Country Club: East",
+      "city": "Rochester",
+      "state": "NY"
+    },
+    {
+      "rank": 22,
+      "name": "Peachtree Golf Club",
+      "city": "Atlanta",
+      "state": "GA"
+    },
+    {
+      "rank": 23,
+      "name": "Pacific Dunes",
+      "city": "Bandon",
+      "state": "OR"
+    },
+    {
+      "rank": 24,
+      "name": "Shadow Creek",
+      "city": "North Las Vegas",
+      "state": "NV"
+    },
+    {
+      "rank": 25,
+      "name": "Prairie Dunes Country Club",
+      "city": "Hutchinson",
+      "state": "KS"
+    },
+    {
+      "rank": 26,
+      "name": "Whistling Straits: Straits Course",
+      "city": "Sheboygan",
+      "state": "WI"
+    },
+    {
+      "rank": 27,
+      "name": "Wade Hampton Golf Club",
+      "city": "Cashiers",
+      "state": "NC"
+    },
+    {
+      "rank": 28,
+      "name": "Southern Hills Country Club",
+      "city": "Tulsa",
+      "state": "OK"
+    },
+    {
+      "rank": 29,
+      "name": "The Honors Course",
+      "city": "Ooltewah",
+      "state": "TN"
+    },
+    {
+      "rank": 30,
+      "name": "Kiawah Island Golf Resort: The Ocean Course",
+      "city": "Kiawah Island",
+      "state": "SC"
+    },
+    {
+      "rank": 31,
+      "name": "Pikewood National Golf Club",
+      "city": "Morgantown",
+      "state": "WV"
+    },
+    {
+      "rank": 32,
+      "name": "Pinehurst No. 2",
+      "city": "Pinehurst",
+      "state": "NC"
+    },
+    {
+      "rank": 33,
+      "name": "San Francisco Golf Club",
+      "city": "San Francisco",
+      "state": "CA"
+    },
+    {
+      "rank": 34,
+      "name": "Ballyneal Golf Club",
+      "city": "Holyoke",
+      "state": "CO"
+    },
+    {
+      "rank": 35,
+      "name": "The Olympic Club: Lake",
+      "city": "San Francisco",
+      "state": "CA"
+    },
+    {
+      "rank": 36,
+      "name": "Ohoopee Match Club",
+      "city": "Cobbtown",
+      "state": "GA"
+    },
+    {
+      "rank": 37,
+      "name": "The Alotian Club",
+      "city": "Roland",
+      "state": "AR"
+    },
+    {
+      "rank": 38,
+      "name": "Bethpage State Park: Black",
+      "city": "Farmingdale",
+      "state": "NY"
+    },
+    {
+      "rank": 39,
+      "name": "Old Town Club",
+      "city": "Winston Salem",
+      "state": "NC"
+    },
+    {
+      "rank": 40,
+      "name": "Congaree Golf Club",
+      "city": "Ridgeland",
+      "state": "SC"
+    },
+    {
+      "rank": 41,
+      "name": "TPC Sawgrass: Stadium",
+      "city": "Ponte Vedra Beach",
+      "state": "FL"
+    },
+    {
+      "rank": 42,
+      "name": "Baltusrol Golf Club: Lower",
+      "city": "Springfield",
+      "state": "NJ"
+    },
+    {
+      "rank": 43,
+      "name": "Gozzer Ranch Golf and Lake Club",
+      "city": "Harrison",
+      "state": "ID"
+    },
+    {
+      "rank": 44,
+      "name": "Bandon Dunes",
+      "city": "Bandon",
+      "state": "OR"
+    },
+    {
+      "rank": 45,
+      "name": "Winged Foot Golf Club: East",
+      "city": "Mamaroneck",
+      "state": "NY"
+    },
+    {
+      "rank": 46,
+      "name": "The Golf Club",
+      "city": "New Albany",
+      "state": "OH"
+    },
+    {
+      "rank": 47,
+      "name": "Shoreacres",
+      "city": "Lake Bluff",
+      "state": "IL"
+    },
+    {
+      "rank": 48,
+      "name": "Camargo Club",
+      "city": "Cincinnati",
+      "state": "OH"
+    },
+    {
+      "rank": 49,
+      "name": "Erin Hills Golf Course",
+      "city": "Hartford",
+      "state": "WI"
+    },
+    {
+      "rank": 50,
+      "name": "Castle Pines Golf Club",
+      "city": "Castle Rock",
+      "state": "CO"
+    },
+    {
+      "rank": 51,
+      "name": "Sebonack Golf Club",
+      "city": "Southampton",
+      "state": "NY"
+    },
+    {
+      "rank": 52,
+      "name": "Sleepy Hollow Country Club",
+      "city": "Scarborough",
+      "state": "NY"
+    },
+    {
+      "rank": 53,
+      "name": "Maidstone Club",
+      "city": "East Hampton",
+      "state": "NY"
+    },
+    {
+      "rank": 54,
+      "name": "Myopia Hunt Club",
+      "city": "South Hamilton",
+      "state": "MA"
+    },
+    {
+      "rank": 55,
+      "name": "Monterey Peninsula Country Club: Shore",
+      "city": "Pebble Beach",
+      "state": "CA"
+    },
+    {
+      "rank": 56,
+      "name": "Somerset Hills Country Club",
+      "city": "Bernardsville",
+      "state": "NJ"
+    },
+    {
+      "rank": 57,
+      "name": "California Golf Club",
+      "city": "South San Francisco",
+      "state": "CA"
+    },
+    {
+      "rank": 58,
+      "name": "Garden City Golf Club",
+      "city": "Garden City",
+      "state": "NY"
+    },
+    {
+      "rank": 59,
+      "name": "Nanea Golf Club",
+      "city": "Kailua Kona",
+      "state": "HI"
+    },
+    {
+      "rank": 60,
+      "name": "Victoria National Golf Club",
+      "city": "Newburgh",
+      "state": "IN"
+    },
+    {
+      "rank": 61,
+      "name": "Bandon Trails",
+      "city": "Bandon",
+      "state": "OR"
+    },
+    {
+      "rank": 62,
+      "name": "Inverness Club",
+      "city": "Toledo",
+      "state": "OH"
+    },
+    {
+      "rank": 63,
+      "name": "Cherry Hills Country Club",
+      "city": "Englewood",
+      "state": "CO"
+    },
+    {
+      "rank": 64,
+      "name": "Interlachen Country Club",
+      "city": "Edina",
+      "state": "MN"
+    },
+    {
+      "rank": 65,
+      "name": "Rock Creek Cattle Company",
+      "city": "Deer Lodge",
+      "state": "MT"
+    },
+    {
+      "rank": 66,
+      "name": "Whispering Pines Golf Club",
+      "city": "Trinity",
+      "state": "TX"
+    },
+    {
+      "rank": 67,
+      "name": "Congressional Country Club: Blue",
+      "city": "Bethesda",
+      "state": "MD"
+    },
+    {
+      "rank": 68,
+      "name": "Calusa Pines Golf Club",
+      "city": "Naples",
+      "state": "FL"
+    },
+    {
+      "rank": 69,
+      "name": "Sand Valley: The Lido",
+      "city": "Nekoosa",
+      "state": "WI"
+    },
+    {
+      "rank": 70,
+      "name": "The Estancia Club",
+      "city": "Scottsdale",
+      "state": "AZ"
+    },
+    {
+      "rank": 71,
+      "name": "The Valley Club of Montecito",
+      "city": "Santa Barbara",
+      "state": "CA"
+    },
+    {
+      "rank": 72,
+      "name": "CapRock Ranch",
+      "city": "Valentine",
+      "state": "NE"
+    },
+    {
+      "rank": 73,
+      "name": "Old Sandwich Golf Club",
+      "city": "Plymouth",
+      "state": "MA"
+    },
+    {
+      "rank": 74,
+      "name": "Medinah Country Club: No. 3",
+      "city": "Medinah",
+      "state": "IL"
+    },
+    {
+      "rank": 75,
+      "name": "Quaker Ridge Golf Club",
+      "city": "Scarsdale",
+      "state": "NY"
+    },
+    {
+      "rank": 76,
+      "name": "Spyglass Hill Golf Course",
+      "city": "Pebble Beach",
+      "state": "CA"
+    },
+    {
+      "rank": 77,
+      "name": "Monterey Peninsula Country Club: Dunes",
+      "city": "Pebble Beach",
+      "state": "CA"
+    },
+    {
+      "rank": 78,
+      "name": "Essex County Club",
+      "city": "Manchester",
+      "state": "MA"
+    },
+    {
+      "rank": 79,
+      "name": "Kinloch Golf Club",
+      "city": "Manakin Sabot",
+      "state": "VA"
+    },
+    {
+      "rank": 80,
+      "name": "Oak Tree National",
+      "city": "Edmond",
+      "state": "OK"
+    },
+    {
+      "rank": 81,
+      "name": "Old Macdonald",
+      "city": "Bandon",
+      "state": "OR"
+    },
+    {
+      "rank": 82,
+      "name": "Scioto Country Club",
+      "city": "Columbus",
+      "state": "OH"
+    },
+    {
+      "rank": 83,
+      "name": "Ladera Golf Club",
+      "city": "Thermal",
+      "state": "CA"
+    },
+    {
+      "rank": 84,
+      "name": "Baltusrol Golf Club: Upper",
+      "city": "Springfield",
+      "state": "NJ"
+    },
+    {
+      "rank": 85,
+      "name": "The Quarry at La Quinta",
+      "city": "La Quinta",
+      "state": "CA"
+    },
+    {
+      "rank": 86,
+      "name": "Canyata Golf Club",
+      "city": "Marshall",
+      "state": "IL"
+    },
+    {
+      "rank": 87,
+      "name": "Butler National Golf Club",
+      "city": "Oak Brook",
+      "state": "IL"
+    },
+    {
+      "rank": 88,
+      "name": "Hudson National Golf Club",
+      "city": "Croton On Hudson",
+      "state": "NY"
+    },
+    {
+      "rank": 89,
+      "name": "The Kittansett Club",
+      "city": "Marion",
+      "state": "MA"
+    },
+    {
+      "rank": 90,
+      "name": "Plainfield Country Club",
+      "city": "Edison",
+      "state": "NJ"
+    },
+    {
+      "rank": 91,
+      "name": "Boston Golf Club",
+      "city": "Hingham",
+      "state": "MA"
+    },
+    {
+      "rank": 92,
+      "name": "Pete Dye Golf Club",
+      "city": "Bridgeport",
+      "state": "WV"
+    },
+    {
+      "rank": 93,
+      "name": "Pasatiempo Golf Club",
+      "city": "Santa Cruz",
+      "state": "CA"
+    },
+    {
+      "rank": 94,
+      "name": "Valhalla Golf Club",
+      "city": "Louisville",
+      "state": "KY"
+    },
+    {
+      "rank": 95,
+      "name": "Diamond Creek",
+      "city": "Banner Elk",
+      "state": "NC"
+    },
+    {
+      "rank": 96,
+      "name": "Dallas National Golf Club",
+      "city": "Dallas",
+      "state": "TX"
+    },
+    {
+      "rank": 97,
+      "name": "Milwaukee Country Club",
+      "city": "River Hills",
+      "state": "WI"
+    },
+    {
+      "rank": 98,
+      "name": "Piping Rock Club",
+      "city": "Locust Valley",
+      "state": "NY"
+    },
+    {
+      "rank": 99,
+      "name": "Crooked Stick Golf Club",
+      "city": "Carmel",
+      "state": "IN"
+    },
+    {
+      "rank": 100,
+      "name": "Aronimink Golf Club",
+      "city": "Newtown Square",
+      "state": "PA"
+    }
+  ],
+  "combined_queue": [
+    {
+      "name": "Pebble Beach Golf Links",
+      "city": "Pebble Beach",
+      "state": "CA"
+    },
+    {
+      "name": "Pacific Dunes",
+      "city": "Bandon",
+      "state": "OR"
+    },
+    {
+      "name": "Shadow Creek",
+      "city": "North Las Vegas",
+      "state": "NV"
+    },
+    {
+      "name": "Whistling Straits: Straits Course",
+      "city": "Sheboygan",
+      "state": "WI"
+    },
+    {
+      "name": "Kiawah Island Golf Resort: The Ocean Course",
+      "city": "Kiawah Island",
+      "state": "SC"
+    },
+    {
+      "name": "Pinehurst No. 2",
+      "city": "Pinehurst",
+      "state": "NC"
+    },
+    {
+      "name": "Bethpage State Park: Black",
+      "city": "Farmingdale",
+      "state": "NY"
+    },
+    {
+      "name": "TPC Sawgrass: Stadium",
+      "city": "Ponte Vedra Beach",
+      "state": "FL"
+    },
+    {
+      "name": "Bandon Dunes",
+      "city": "Bandon",
+      "state": "OR"
+    },
+    {
+      "name": "Erin Hills Golf Course",
+      "city": "Hartford",
+      "state": "WI"
+    },
+    {
+      "name": "Bandon Trails",
+      "city": "Bandon",
+      "state": "OR"
+    },
+    {
+      "name": "Sand Valley: The Lido",
+      "city": "Nekoosa",
+      "state": "WI"
+    },
+    {
+      "name": "Spyglass Hill Golf Course",
+      "city": "Pebble Beach",
+      "state": "CA"
+    },
+    {
+      "name": "Old Macdonald",
+      "city": "Bandon",
+      "state": "OR"
+    },
+    {
+      "name": "Pasatiempo Golf Club",
+      "city": "Santa Cruz",
+      "state": "CA"
+    },
+    {
+      "name": "Arcadia Bluffs Golf Club (Bluffs)",
+      "city": "Arcadia",
+      "state": "MI"
+    },
+    {
+      "name": "Blackwolf Run: River",
+      "city": "Kohler",
+      "state": "WI"
+    },
+    {
+      "name": "French Lick Resort: Pete Dye Course",
+      "city": "French Lick",
+      "state": "IN"
+    },
+    {
+      "name": "Chambers Bay",
+      "city": "University Place",
+      "state": "WA"
+    },
+    {
+      "name": "Streamsong Resort: Red",
+      "city": "Bowling Green",
+      "state": "FL"
+    },
+    {
+      "name": "Sand Valley Golf Resort: Sand Valley",
+      "city": "Nekoosa",
+      "state": "WI"
+    },
+    {
+      "name": "Manele Golf Course",
+      "city": "Lanai City",
+      "state": "HI"
+    },
+    {
+      "name": "Kapalua: Plantation",
+      "city": "Lahaina",
+      "state": "HI"
+    },
+    {
+      "name": "Landmand",
+      "city": "Homer",
+      "state": "NE"
+    },
+    {
+      "name": "Sand Valley Golf Resort: Mammoth Dunes",
+      "city": "Nekoosa",
+      "state": "WI"
+    },
+    {
+      "name": "Streamsong Resort: Blue",
+      "city": "Bowling Green",
+      "state": "FL"
+    },
+    {
+      "name": "Bandon Dunes Golf Resort: Sheep Ranch",
+      "city": "Bandon",
+      "state": "OR"
+    },
+    {
+      "name": "Harbour Town Golf Links",
+      "city": "Hilton Head Island",
+      "state": "SC"
+    },
+    {
+      "name": "The Highland Course At Primland",
+      "city": "Meadows of Dan",
+      "state": "VA"
+    },
+    {
+      "name": "Pinehurst No. 10",
+      "city": "Pinehurst",
+      "state": "NC"
+    },
+    {
+      "name": "Gamble Sands",
+      "city": "Brewster",
+      "state": "WA"
+    },
+    {
+      "name": "Pinehurst No. 4",
+      "city": "Pinehurst",
+      "state": "NC"
+    },
+    {
+      "name": "Streamsong Resort: Black",
+      "city": "Bowling Green",
+      "state": "FL"
+    },
+    {
+      "name": "PGA Frisco: Fields Ranch East",
+      "city": "Frisco",
+      "state": "TX"
+    },
+    {
+      "name": "Black Desert Resort",
+      "city": "Ivins",
+      "state": "UT"
+    },
+    {
+      "name": "The Prairie Club (Dunes Course)",
+      "city": "Valentine",
+      "state": "NE"
+    },
+    {
+      "name": "Forest Dunes Golf Club",
+      "city": "Roscommon",
+      "state": "MI"
+    },
+    {
+      "name": "Yale Golf Course",
+      "city": "New Haven",
+      "state": "CT"
+    },
+    {
+      "name": "The Greenbrier: Old White",
+      "city": "White Sulphur Springs",
+      "state": "WV"
+    },
+    {
+      "name": "Torrey Pines Golf Course: South",
+      "city": "La Jolla",
+      "state": "CA"
+    },
+    {
+      "name": "Pronghorn Club at Juniper Preserve",
+      "city": "Bend",
+      "state": "OR"
+    },
+    {
+      "name": "The Omni Homestead Resort: Cascades Course",
+      "city": "Hot Springs",
+      "state": "VA"
+    },
+    {
+      "name": "Mauna Kea Beach Hotel Golf Course",
+      "city": "Kamuela",
+      "state": "HI"
+    },
+    {
+      "name": "Tobacco Road Golf Club",
+      "city": "Sanford",
+      "state": "NC"
+    },
+    {
+      "name": "Sea Island: Seaside",
+      "city": "St. Simons Island",
+      "state": "GA"
+    },
+    {
+      "name": "Big Cedar Lodge: Ozarks National",
+      "city": "Ridgedale",
+      "state": "MO"
+    },
+    {
+      "name": "The Broadmoor Golf Club: East",
+      "city": "Colorado Springs",
+      "state": "CO"
+    },
+    {
+      "name": "Fallen Oak",
+      "city": "Sautee Nacoochee",
+      "state": "MS"
+    },
+    {
+      "name": "SentryWorld Golf Club",
+      "city": "Stevens Point",
+      "state": "WI"
+    },
+    {
+      "name": "Cabot Citrus Farms: Karoo",
+      "city": "Beverly Hills",
+      "state": "FL"
+    },
+    {
+      "name": "Sedge Valley at Sand Valley",
+      "city": "Nekoosa",
+      "state": "WI"
+    },
+    {
+      "name": "CordeValle Golf Club",
+      "city": "San Martin",
+      "state": "CA"
+    },
+    {
+      "name": "Arcadia Bluffs South Course",
+      "city": "Arcadia",
+      "state": "MI"
+    },
+    {
+      "name": "The Links At Spanish Bay",
+      "city": "Pebble Beach",
+      "state": "CA"
+    },
+    {
+      "name": "Greywalls at Marquette Golf Club",
+      "city": "Marquette",
+      "state": "MI"
+    },
+    {
+      "name": "Paako Ridge Golf Club",
+      "city": "Sandia Park",
+      "state": "NM"
+    },
+    {
+      "name": "Wilderness Club",
+      "city": "Eureka",
+      "state": "MT"
+    },
+    {
+      "name": "The Quarry at Giants Ridge",
+      "city": "Biwabik",
+      "state": "MN"
+    },
+    {
+      "name": "Wolf Creek Golf Club",
+      "city": "Mesquite",
+      "state": "NV"
+    },
+    {
+      "name": "Pine Needles Lodge & Golf Club",
+      "city": "Southern Pines",
+      "state": "NC"
+    },
+    {
+      "name": "Tetherow Golf Club",
+      "city": "Bend",
+      "state": "OR"
+    },
+    {
+      "name": "PGA West: Stadium Course",
+      "city": "La Quinta",
+      "state": "CA"
+    },
+    {
+      "name": "The Loop: Black",
+      "city": "Sheboygan",
+      "state": "WI"
+    },
+    {
+      "name": "Nemacolin: Mystic Rock",
+      "city": "Farmington",
+      "state": "PA"
+    },
+    {
+      "name": "Whistling Straits: Irish Course",
+      "city": "Sheboygan",
+      "state": "WI"
+    },
+    {
+      "name": "The Golf Courses of Lawsonia: Links",
+      "city": "Green Lake",
+      "state": "WI"
+    },
+    {
+      "name": "Wynn Golf Club",
+      "city": "Las Vegas",
+      "state": "NV"
+    },
+    {
+      "name": "The Loop (Red)",
+      "city": "Sheboygan",
+      "state": "WI"
+    },
+    {
+      "name": "Crosswater Golf Course",
+      "city": "Sunriver",
+      "state": "OR"
+    },
+    {
+      "name": "Tullymore Golf Resort",
+      "city": "Stanwood",
+      "state": "MI"
+    },
+    {
+      "name": "Red Sky Ranch & Golf Club Fazio Course",
+      "city": "Wolcott",
+      "state": "CO"
+    },
+    {
+      "name": "The Wilderness At Fortune Bay",
+      "city": "Tower",
+      "state": "MN"
+    },
+    {
+      "name": "Makai Golf Club",
+      "city": "Princeville",
+      "state": "HI"
+    },
+    {
+      "name": "Cascata",
+      "city": "Boulder City",
+      "state": "NV"
+    },
+    {
+      "name": "Golden Horseshoe Golf Club: Gold Course",
+      "city": "Williamsburg",
+      "state": "VA"
+    },
+    {
+      "name": "Cog Hill Golf & Country Club: Dubsdread (Course #4)",
+      "city": "Lemont",
+      "state": "IL"
+    },
+    {
+      "name": "Fields Ranch PGA of America Frisco: West Course",
+      "city": "Frisco",
+      "state": "TX"
+    },
+    {
+      "name": "Taconic Golf Club",
+      "city": "Williamstown",
+      "state": "MA"
+    },
+    {
+      "name": "The Dunes Golf & Beach Club",
+      "city": "Myrtle Beach",
+      "state": "SC"
+    },
+    {
+      "name": "Madden's on Gull Lake: The Classic at Madden's",
+      "city": "Brainerd",
+      "state": "MN"
+    },
+    {
+      "name": "Big Cedar Lodge: Payne's Valley",
+      "city": "Ridgedale",
+      "state": "MO"
+    },
+    {
+      "name": "Mossy Oak Golf Club",
+      "city": "West Point",
+      "state": "MS"
+    },
+    {
+      "name": "Edgewood Tahoe Golf Course",
+      "city": "Stateline",
+      "state": "NV"
+    },
+    {
+      "name": "Wild Horse Golf Club",
+      "city": "Gothenburg",
+      "state": "NE"
+    },
+    {
+      "name": "Black Mesa Golf Club",
+      "city": "Espanola",
+      "state": "NM"
+    },
+    {
+      "name": "Trump National Doral: Blue Monster",
+      "city": "Miami",
+      "state": "FL"
+    },
+    {
+      "name": "Red Sky Ranch & Golf Club Norman Course",
+      "city": "Wolcott",
+      "state": "CO"
+    },
+    {
+      "name": "Mid Pines Inn & Golf Club",
+      "city": "Southern Pines",
+      "state": "NC"
+    },
+    {
+      "name": "The Park at West Palm Beach",
+      "city": "West Palm Beach",
+      "state": "FL"
+    },
+    {
+      "name": "The Prairie Club: Pines Course",
+      "city": "Valentine",
+      "state": "NE"
+    },
+    {
+      "name": "Firestone Country Club: South",
+      "city": "Akron",
+      "state": "OH"
+    },
+    {
+      "name": "Blackwolf Run: Meadow Valleys",
+      "city": "Kohler",
+      "state": "WI"
+    },
+    {
+      "name": "Quintero Golf Club",
+      "city": "Peoria",
+      "state": "AZ"
+    },
+    {
+      "name": "Big Cedar Lodge: Buffalo Ridge",
+      "city": "Ridgedale",
+      "state": "MO"
+    },
+    {
+      "name": "TPC San Antonio (Oaks)",
+      "city": "San Antonio",
+      "state": "TX"
+    },
+    {
+      "name": "Wine Valley Golf Club",
+      "city": "Walla Walla",
+      "state": "WA"
+    },
+    {
+      "name": "The Pfau Course At Indiana University",
+      "city": "Bloomington",
+      "state": "IN"
+    },
+    {
+      "name": "Southern Pines Golf Club",
+      "city": "Southern Pines",
+      "state": "NC"
+    },
+    {
+      "name": "Reynolds Lake Oconee: Great Waters",
+      "city": "Eatonton",
+      "state": "GA"
+    },
+    {
+      "name": "Bay Harbor Golf Club: Links/Quarry",
+      "city": "Bay Harbor",
+      "state": "MI"
+    },
+    {
+      "name": "Pine Valley Golf Club",
+      "city": "Pine Valley",
+      "state": "NJ"
+    },
+    {
+      "name": "Augusta National Golf Club",
+      "city": "Augusta",
+      "state": "GA"
+    },
+    {
+      "name": "Cypress Point Club",
+      "city": "Pebble Beach",
+      "state": "CA"
+    },
+    {
+      "name": "Shinnecock Hills Golf Club",
+      "city": "Southampton",
+      "state": "NY"
+    },
+    {
+      "name": "Oakmont Country Club",
+      "city": "Oakmont",
+      "state": "PA"
+    },
+    {
+      "name": "Merion Golf Club: East",
+      "city": "Ardmore",
+      "state": "PA"
+    },
+    {
+      "name": "National Golf Links of America",
+      "city": "Southampton",
+      "state": "NY"
+    },
+    {
+      "name": "Sand Hills Golf Club",
+      "city": "Mullen",
+      "state": "NE"
+    },
+    {
+      "name": "Fishers Island Club",
+      "city": "Fishers Island",
+      "state": "NY"
+    },
+    {
+      "name": "Chicago Golf Club",
+      "city": "Wheaton",
+      "state": "IL"
+    },
+    {
+      "name": "Seminole Golf Club",
+      "city": "Juno Beach",
+      "state": "FL"
+    },
+    {
+      "name": "Winged Foot Golf Club: West",
+      "city": "Mamaroneck",
+      "state": "NY"
+    },
+    {
+      "name": "Friar's Head Golf Club",
+      "city": "Riverhead",
+      "state": "NY"
+    },
+    {
+      "name": "Crystal Downs Country Club",
+      "city": "Frankfort",
+      "state": "MI"
+    },
+    {
+      "name": "Los Angeles Country Club: North",
+      "city": "Los Angeles",
+      "state": "CA"
+    },
+    {
+      "name": "The Country Club: The Main Course",
+      "city": "Brookline",
+      "state": "MA"
+    },
+    {
+      "name": "Riviera Country Club",
+      "city": "Pacific Palisades",
+      "state": "CA"
+    },
+    {
+      "name": "Muirfield Village Golf Club",
+      "city": "Dublin",
+      "state": "OH"
+    },
+    {
+      "name": "Oakland Hills Country Club: South Course",
+      "city": "Bloomfield Hills",
+      "state": "MI"
+    },
+    {
+      "name": "Oak Hill Country Club: East",
+      "city": "Rochester",
+      "state": "NY"
+    },
+    {
+      "name": "Peachtree Golf Club",
+      "city": "Atlanta",
+      "state": "GA"
+    },
+    {
+      "name": "Prairie Dunes Country Club",
+      "city": "Hutchinson",
+      "state": "KS"
+    },
+    {
+      "name": "Wade Hampton Golf Club",
+      "city": "Cashiers",
+      "state": "NC"
+    },
+    {
+      "name": "Southern Hills Country Club",
+      "city": "Tulsa",
+      "state": "OK"
+    },
+    {
+      "name": "The Honors Course",
+      "city": "Ooltewah",
+      "state": "TN"
+    },
+    {
+      "name": "Pikewood National Golf Club",
+      "city": "Morgantown",
+      "state": "WV"
+    },
+    {
+      "name": "San Francisco Golf Club",
+      "city": "San Francisco",
+      "state": "CA"
+    },
+    {
+      "name": "Ballyneal Golf Club",
+      "city": "Holyoke",
+      "state": "CO"
+    },
+    {
+      "name": "The Olympic Club: Lake",
+      "city": "San Francisco",
+      "state": "CA"
+    },
+    {
+      "name": "Ohoopee Match Club",
+      "city": "Cobbtown",
+      "state": "GA"
+    },
+    {
+      "name": "The Alotian Club",
+      "city": "Roland",
+      "state": "AR"
+    },
+    {
+      "name": "Old Town Club",
+      "city": "Winston Salem",
+      "state": "NC"
+    },
+    {
+      "name": "Congaree Golf Club",
+      "city": "Ridgeland",
+      "state": "SC"
+    },
+    {
+      "name": "Baltusrol Golf Club: Lower",
+      "city": "Springfield",
+      "state": "NJ"
+    },
+    {
+      "name": "Gozzer Ranch Golf and Lake Club",
+      "city": "Harrison",
+      "state": "ID"
+    },
+    {
+      "name": "Winged Foot Golf Club: East",
+      "city": "Mamaroneck",
+      "state": "NY"
+    },
+    {
+      "name": "The Golf Club",
+      "city": "New Albany",
+      "state": "OH"
+    },
+    {
+      "name": "Shoreacres",
+      "city": "Lake Bluff",
+      "state": "IL"
+    },
+    {
+      "name": "Camargo Club",
+      "city": "Cincinnati",
+      "state": "OH"
+    },
+    {
+      "name": "Castle Pines Golf Club",
+      "city": "Castle Rock",
+      "state": "CO"
+    },
+    {
+      "name": "Sebonack Golf Club",
+      "city": "Southampton",
+      "state": "NY"
+    },
+    {
+      "name": "Sleepy Hollow Country Club",
+      "city": "Scarborough",
+      "state": "NY"
+    },
+    {
+      "name": "Maidstone Club",
+      "city": "East Hampton",
+      "state": "NY"
+    },
+    {
+      "name": "Myopia Hunt Club",
+      "city": "South Hamilton",
+      "state": "MA"
+    },
+    {
+      "name": "Monterey Peninsula Country Club: Shore",
+      "city": "Pebble Beach",
+      "state": "CA"
+    },
+    {
+      "name": "Somerset Hills Country Club",
+      "city": "Bernardsville",
+      "state": "NJ"
+    },
+    {
+      "name": "California Golf Club",
+      "city": "South San Francisco",
+      "state": "CA"
+    },
+    {
+      "name": "Garden City Golf Club",
+      "city": "Garden City",
+      "state": "NY"
+    },
+    {
+      "name": "Nanea Golf Club",
+      "city": "Kailua Kona",
+      "state": "HI"
+    },
+    {
+      "name": "Victoria National Golf Club",
+      "city": "Newburgh",
+      "state": "IN"
+    },
+    {
+      "name": "Inverness Club",
+      "city": "Toledo",
+      "state": "OH"
+    },
+    {
+      "name": "Cherry Hills Country Club",
+      "city": "Englewood",
+      "state": "CO"
+    },
+    {
+      "name": "Interlachen Country Club",
+      "city": "Edina",
+      "state": "MN"
+    },
+    {
+      "name": "Rock Creek Cattle Company",
+      "city": "Deer Lodge",
+      "state": "MT"
+    },
+    {
+      "name": "Whispering Pines Golf Club",
+      "city": "Trinity",
+      "state": "TX"
+    },
+    {
+      "name": "Congressional Country Club: Blue",
+      "city": "Bethesda",
+      "state": "MD"
+    },
+    {
+      "name": "Calusa Pines Golf Club",
+      "city": "Naples",
+      "state": "FL"
+    },
+    {
+      "name": "The Estancia Club",
+      "city": "Scottsdale",
+      "state": "AZ"
+    },
+    {
+      "name": "The Valley Club of Montecito",
+      "city": "Santa Barbara",
+      "state": "CA"
+    },
+    {
+      "name": "CapRock Ranch",
+      "city": "Valentine",
+      "state": "NE"
+    },
+    {
+      "name": "Old Sandwich Golf Club",
+      "city": "Plymouth",
+      "state": "MA"
+    },
+    {
+      "name": "Medinah Country Club: No. 3",
+      "city": "Medinah",
+      "state": "IL"
+    },
+    {
+      "name": "Quaker Ridge Golf Club",
+      "city": "Scarsdale",
+      "state": "NY"
+    },
+    {
+      "name": "Monterey Peninsula Country Club: Dunes",
+      "city": "Pebble Beach",
+      "state": "CA"
+    },
+    {
+      "name": "Essex County Club",
+      "city": "Manchester",
+      "state": "MA"
+    },
+    {
+      "name": "Kinloch Golf Club",
+      "city": "Manakin Sabot",
+      "state": "VA"
+    },
+    {
+      "name": "Oak Tree National",
+      "city": "Edmond",
+      "state": "OK"
+    },
+    {
+      "name": "Scioto Country Club",
+      "city": "Columbus",
+      "state": "OH"
+    },
+    {
+      "name": "Ladera Golf Club",
+      "city": "Thermal",
+      "state": "CA"
+    },
+    {
+      "name": "Baltusrol Golf Club: Upper",
+      "city": "Springfield",
+      "state": "NJ"
+    },
+    {
+      "name": "The Quarry at La Quinta",
+      "city": "La Quinta",
+      "state": "CA"
+    },
+    {
+      "name": "Canyata Golf Club",
+      "city": "Marshall",
+      "state": "IL"
+    },
+    {
+      "name": "Butler National Golf Club",
+      "city": "Oak Brook",
+      "state": "IL"
+    },
+    {
+      "name": "Hudson National Golf Club",
+      "city": "Croton On Hudson",
+      "state": "NY"
+    },
+    {
+      "name": "The Kittansett Club",
+      "city": "Marion",
+      "state": "MA"
+    },
+    {
+      "name": "Plainfield Country Club",
+      "city": "Edison",
+      "state": "NJ"
+    },
+    {
+      "name": "Boston Golf Club",
+      "city": "Hingham",
+      "state": "MA"
+    },
+    {
+      "name": "Pete Dye Golf Club",
+      "city": "Bridgeport",
+      "state": "WV"
+    },
+    {
+      "name": "Valhalla Golf Club",
+      "city": "Louisville",
+      "state": "KY"
+    },
+    {
+      "name": "Diamond Creek",
+      "city": "Banner Elk",
+      "state": "NC"
+    },
+    {
+      "name": "Dallas National Golf Club",
+      "city": "Dallas",
+      "state": "TX"
+    },
+    {
+      "name": "Milwaukee Country Club",
+      "city": "River Hills",
+      "state": "WI"
+    },
+    {
+      "name": "Piping Rock Club",
+      "city": "Locust Valley",
+      "state": "NY"
+    },
+    {
+      "name": "Crooked Stick Golf Club",
+      "city": "Carmel",
+      "state": "IN"
+    },
+    {
+      "name": "Aronimink Golf Club",
+      "city": "Newtown Square",
+      "state": "PA"
+    }
+  ],
+  "total_courses": 185
+}
