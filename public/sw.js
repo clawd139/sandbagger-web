@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sandbagger-v7';
+const CACHE_NAME = 'sandbagger-v8';
 const STATIC_ASSETS = ['/', '/manifest.json'];
 
 self.addEventListener('install', (event) => {
